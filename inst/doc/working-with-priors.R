@@ -21,14 +21,8 @@ cont_prior <- ContinuousPrior(
 )
 
 ## ------------------------------------------------------------------------
-expected(ConditionalPower(
-  Normal(), 
-  PointMassPrior(.4, 1)
-)) >= 0.8
+Power(Normal(), PointMassPrior(.4, 1)) >= 0.8
 
 ## ------------------------------------------------------------------------
-expected(ConditionalPower(
-  Normal(), 
-  condition(cont_prior, c(0, 3))
-)) >= 0.8
+Power(Normal(), condition(cont_prior, c(0, 3))) >= 0.8
 

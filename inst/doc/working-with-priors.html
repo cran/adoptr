@@ -20,7 +20,7 @@
 <style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -33,13 +33,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -291,6 +289,9 @@ code > span.al { color: #ff0000; font-weight: bold; }
 code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
+
+
+
 </head>
 
 <body>
@@ -302,8 +303,6 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 
-<div id="working-with-priors-in-adoptr" class="section level2">
-<h2>Working with priors in <strong>adoptr</strong></h2>
 <p>Internally, <strong>adoptr</strong> is built around the joint distribution of a test statistic and the unknown location parameter of interest given a sample size, i.e. <span class="math display">\[
 \mathcal{L}\big[(X_i, \theta)\,|\,n_i\big]
 \]</span> where <span class="math inline">\(X_i\)</span> is the stage-<span class="math inline">\(i\)</span> test statistic and <span class="math inline">\(n_i\)</span> the corresponding sample size. The distribution class for <span class="math inline">\(X_i\)</span> is defined by specifying a <code>DataDistribution</code> object, e.g., a normal distribution</p>
@@ -329,18 +328,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="conditioning" class="section level3">
 <h3>Conditioning</h3>
 <p>In practice, the most important operation will be conditioning. This is important to implement type one and type two error rate constraints. Consider, e.g., the case of power. Typically, a power constraint is imposed on a single point in the alternative, e.g. using the constraint</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">expected</span>(<span class="kw">ConditionalPower</span>(</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">Normal</span>(), </a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="kw">PointMassPrior</span>(.<span class="dv">4</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">)) <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.8</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; UnconditionalConstraint</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">Power</span>(<span class="kw">Normal</span>(), <span class="kw">PointMassPrior</span>(.<span class="dv">4</span>, <span class="dv">1</span>)) <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.8</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; UnconditionalConstraint</span></a></code></pre></div>
 <p>If uncertainty about the true response rate should be incorporated in the design, it makes sense to assume a continuous prior on <span class="math inline">\(\theta\)</span>. In this case, the prior should be conditioned for the power constraint to avoid integrating over the null hypothesis:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">expected</span>(<span class="kw">ConditionalPower</span>(</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw">Normal</span>(), </a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="kw">condition</span>(cont_prior, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">)) <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.8</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; UnconditionalConstraint</span></a></code></pre></div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">Power</span>(<span class="kw">Normal</span>(), <span class="kw">condition</span>(cont_prior, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>))) <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.8</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; UnconditionalConstraint</span></a></code></pre></div>
 </div>
 
 

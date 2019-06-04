@@ -17,11 +17,11 @@ H_1 <- PointMassPrior(.4, 1)
 datadist <- Normal(two_armed = FALSE)
 
 ## ----define-ess----------------------------------------------------------
-ess <- expected(ConditionalSampleSize(datadist, H_1))
+ess <- ExpectedSampleSize(datadist, H_1)
 
 ## ----define-power-toer---------------------------------------------------
-power  <- expected(ConditionalPower(datadist, H_1))
-toer   <- expected(ConditionalPower(datadist, H_0))
+power <- Power(datadist, H_1)
+toer  <- Power(datadist, H_0)
 
 ## ----create-design-------------------------------------------------------
 initial_design <- TwoStageDesign(
@@ -65,7 +65,13 @@ plot(
 evaluate(ess, opt_res$design)
 
 ## ------------------------------------------------------------------------
-df_sim <- simulate(opt_res$design, nsim = 10^6, dist = datadist, theta = .4, seed = 42)
+df_sim <- simulate(
+  opt_res$design, 
+  nsim = 10^6, 
+  dist = datadist, 
+  theta = .4, 
+  seed = 42
+)
 
 n <- df_sim$n1 + df_sim$n2
 mean(n)
