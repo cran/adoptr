@@ -3,6 +3,8 @@
 #' The \pkg{adoptr} package provides functionality to explore custom optimal
 #' two-stage designs for one- or two-arm superiority tests.
 #' Currently, only (asymptotically) normal test statistics are supported.
+#' For more details on the theoretical background see
+#' <doi:10.1002/sim.8291>.
 #' \pkg{adoptr} makes heavy use of the S4 class system.
 #' A good place to start learning about it can be found
 #' \href{http://adv-r.had.co.nz/OO-essentials.html}{here}.

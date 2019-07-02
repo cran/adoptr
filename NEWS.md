@@ -1,3 +1,15 @@
+# adoptr 0.2.2
+
+* fixed references to SIM paper
+
+
+
+# adoptr 0.2.1
+
+* added references to SIM paper in all relevant places
+
+
+
 # adoptr 0.2.0
 
 * new feature: composite scores allows more generic expressions than just 

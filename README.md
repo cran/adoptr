@@ -1,5 +1,6 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2616952.svg)](https://doi.org/10.5281/zenodo.2616952)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2616951.svg)](https://doi.org/10.5281/zenodo.2616951)
 
+[![Join the chat at https://gitter.im/adoptr/community](https://badges.gitter.im/adoptr/community.svg)](https://gitter.im/adoptr/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Travis build status](https://travis-ci.org/kkmann/adoptr.svg?branch=master)](https://travis-ci.org/kkmann/adoptr)
 [![Codecov test coverage](https://codecov.io/gh/kkmann/adoptr/branch/master/graph/badge.svg)](https://codecov.io/gh/kkmann/adoptr?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/adoptr)](https://cran.r-project.org/package=adoptr)
@@ -10,7 +11,11 @@
 # adoptr <a href='https://github.com/kkmann/adoptr'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 
-Adaptive optimal two-stage designs for clinical trials with one or two arms.
+Adaptive optimal two-stage designs for clinical trials with one or two arms for details on the core theoretical background, see:
+
+Pilz M, Kunzmann K, Herrmann C, Rauch G, Kieser M. A variational approach to
+optimal two-stage designs. Statistics in Medicine. 2019;1–13.
+https://doi.org/10.1002/sim.8291
 
 
 
