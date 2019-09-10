@@ -7,12 +7,14 @@
 \alias{evaluate,N1,TwoStageDesign-method}
 \title{Regularize n1}
 \usage{
-N1()
+N1(label = NA_character_)
 
 \S4method{evaluate}{N1,TwoStageDesign}(s, design, optimization = FALSE,
   ...)
 }
 \arguments{
+\item{label}{object label (string)}
+
 \item{s}{\code{\link[=Scores]{Score}} object}
 
 \item{design}{object}

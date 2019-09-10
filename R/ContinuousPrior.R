@@ -23,6 +23,7 @@ setClass("ContinuousPrior", representation(
 #'     the compact interval on which the pdf is positive.
 #' @template tighten_support
 #' @template check_normalization
+#' @template label
 #'
 #' @examples
 #' ContinuousPrior(function(x) 2*x, c(0, 1))
@@ -31,6 +32,7 @@ setClass("ContinuousPrior", representation(
 #' @export
 ContinuousPrior <- function(pdf,
                             support,
+                            label = NA_character_,
                             tighten_support = FALSE,
                             check_normalization = TRUE) {
     if (length(support) != 2)
@@ -60,7 +62,7 @@ ContinuousPrior <- function(pdf,
         pdf     <- function(theta) pdf_old(theta) / norm
     }
 
-    new("ContinuousPrior", pdf = pdf, support = support)
+    new("ContinuousPrior", pdf = pdf, support = support, label = label)
 }
 
 
@@ -202,10 +204,8 @@ setMethod("posterior", signature("DataDistribution", "ContinuousPrior", "numeric
     })
 
 
-#' @param object object of class \code{ContinuousPrior}
-#'
-#' @rdname ContinuousPrior-class
-#' @export
-setMethod("show", signature(object = "ContinuousPrior"),
-          function(object) cat(class(object)[1]))
 
+setMethod("print", signature('ContinuousPrior'), function(x, ...) {
+    name <- if (!is.na(x@label)) x@label else class(x)[1]
+    glue::glue("{name}<[{x@support[1]},{x@support[2]}]>")
+})

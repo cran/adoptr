@@ -11,7 +11,7 @@
 #' @template dotdotdot
 #' @param data_distribution \code{\link{DataDistribution}} object
 #' @template prior
-#' @template object
+#' @template label
 #' @template optimization
 #' @param subdivisions maximal number of subdivisions when evaluating an integral
 #'   score using adaptive quadrature (optimization = FALSE)
@@ -54,7 +54,7 @@ NULL
 
 
 # abstract class structure for scores
-setClass("Score")
+setClass("Score", representation(label = "character"))
 setClass("ConditionalScore", contains = "Score")
 setClass("UnconditionalScore", contains = "Score")
 
@@ -68,12 +68,21 @@ setClass("IntegralScore", representation(
 
 
 
-#' @rdname Scores
-#' @export
-setMethod("show", signature(object = "Score"),
-          function(object) cat(class(object)[1]))
+setMethod("show", signature(object = "Score"), function(object) {
+    cat(print(object), "\n")
+})
 
+setMethod("print", signature('Score'), function(x, ...) {
+    if (!is.na(x@label)) x@label else paste0(class(x)[1], "<>")
+})
 
+setMethod("print", signature('IntegralScore'), function(x, ...) {
+    if (is.na(x@label)) {
+        sprintf("E[%s]<%s;%s>", print(x@cs), print(x@data_distribution), print(x@prior))
+    } else {
+        sprintf("E[%s]<%s;%s>", x@label, print(x@data_distribution), print(x@prior))
+    }
+})
 
 
 
@@ -86,8 +95,9 @@ setGeneric("expected", function(s, data_distribution, prior, ...) standardGeneri
 #' @rdname Scores
 #' @export
 setMethod("expected", signature("ConditionalScore"),
-          function(s, data_distribution, prior, ...) {
-              new("IntegralScore", cs = s, data_distribution = data_distribution, prior = prior)
+          function(s, data_distribution, prior, label = NA_character_, ...) {
+              new("IntegralScore", label = label, cs = s,
+                  data_distribution = data_distribution, prior = prior)
           })
 
 

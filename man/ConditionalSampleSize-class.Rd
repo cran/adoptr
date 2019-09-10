@@ -8,14 +8,16 @@
 \alias{evaluate,ConditionalSampleSize,TwoStageDesign-method}
 \title{(Conditional) Sample Size of a Design}
 \usage{
-ConditionalSampleSize()
+ConditionalSampleSize(label = "n(x1)")
 
-ExpectedSampleSize(dist, prior)
+ExpectedSampleSize(dist, prior, label = "E[n(x1)]")
 
 \S4method{evaluate}{ConditionalSampleSize,TwoStageDesign}(s, design, x1,
   optimization = FALSE, ...)
 }
 \arguments{
+\item{label}{object label (string)}
+
 \item{dist}{a univariate \code{\link[=DataDistribution-class]{distribution}} object}
 
 \item{prior}{a \code{\link{Prior}} object}

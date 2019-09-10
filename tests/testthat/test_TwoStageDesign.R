@@ -71,35 +71,31 @@ test_that("errors are returned correctly", {
 
 
 
-test_that("print methods", {
-
-    pow <- Power(Normal(), PointMassPrior(.4, 1))
-    vdiffr::expect_doppelganger(
-        "Design print",
-        print.TwoStageDesignSummary(summary(design, "Power" = pow)))
-
-}) # end 'print methods'
-
-
-
 test_that("plot produces correct number of columns", {
 
     cp  <- ConditionalPower(Normal(), PointMassPrior(.3, 1))
-    pic <- plot(design, "ConditionalPower" = cp)
+    pic1 <- plot(design, "ConditionalPower" = cp, lwd = 1.5, col = "green")
+    pic2 <- plot(design, "ConditionalPower" = cp)
+    pic3 <- plot(design, cex = 2)
+    pic4 <- plot(design)
 
-    expect_true(
-        pic$mfrow[2] == 3)
+    expect_true(pic1$mfrow[2] == 3)
+    expect_true(pic2$mfrow[2] == 3)
+    expect_true(pic3$mfrow[2] == 2)
+    expect_true(pic4$mfrow[2] == 2)
 
 }) # end 'plot produces correct number of columns'
 
 
 
-test_that("show method returns design name", {
+test_that("show method", {
 
-    expect_true(
-        class(design)[1] == capture.output(show(design)))
+    expect_equal(
+        paste0(capture.output(show(design)), collapse = "\n\r"),
+        "TwoStageDesign<\n\r\r      x1    c2   n\n\r\r     0.70   Inf   50\n\r\r     0.78  1.96  100\n\r\r     1.12  1.96  100\n\r\r     1.60  1.96  100\n\r\r     2.08  1.96  100\n\r\r     2.42  1.96  100\n\r\r     2.50  -Inf   50>\n\r\r "
+    )
 
-}) # end 'show method returns design name'
+})
 
 
 

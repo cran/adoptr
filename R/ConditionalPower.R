@@ -35,18 +35,28 @@ setClass("ConditionalPower", representation(
     contains = "ConditionalScore")
 
 
-
+#' @template label
+#'
 #' @rdname ConditionalPower-class
 #' @export
-ConditionalPower <- function(dist, prior) {
-    new("ConditionalPower", distribution = dist, prior = prior)
+ConditionalPower <- function(dist, prior, label = "Pr[x2>=c2(x1)|x1]") {
+    new("ConditionalPower", distribution = dist, prior = prior, label = label)
 }
 
 
 
+setMethod("print", signature('ConditionalPower'), function(x, ...) {
+    name <- if (!is.na(x@label)) x@label else class(x)[1]
+    return(sprintf("%s<%s;%s>", name, print(x@distribution), print(x@prior)))
+})
+
+
+
 #' @rdname ConditionalPower-class
 #' @export
-Power <- function(dist, prior) expected(ConditionalPower(dist, prior), dist, prior)
+Power <- function(dist, prior, label = "Pr[x2>=c2(x1)]") {
+    expected(ConditionalPower(dist, prior), dist, prior, label = label)
+}
 
 
 

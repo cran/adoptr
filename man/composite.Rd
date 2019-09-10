@@ -6,7 +6,7 @@
 \alias{evaluate,CompositeScore,TwoStageDesign-method}
 \title{Score Composition}
 \usage{
-composite(expr)
+composite(expr, label = NA_character_)
 
 \S4method{evaluate}{CompositeScore,TwoStageDesign}(s, design, ...)
 }
@@ -14,6 +14,8 @@ composite(expr)
 \item{expr}{Expression (in curly brackets); must contain at least one score
 variable; if multiple scores are used, they must either all be conditional
 or unconditional. Currently, no non-score variables are supported}
+
+\item{label}{object label (string)}
 
 \item{s}{object of class \code{CompositeScore}}
 

@@ -1,3 +1,10 @@
+# adoptr 0.2.3
+
+* reworked the class printing system to be more informative
+* minimize() now also returns an S3 class object to allow pretty-printing
+
+
+
 # adoptr 0.2.2
 
 * fixed references to SIM paper

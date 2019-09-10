@@ -3,18 +3,16 @@
 \docType{methods}
 \name{Scores}
 \alias{Scores}
-\alias{show,Score-method}
 \alias{expected}
 \alias{expected,ConditionalScore-method}
 \alias{evaluate}
 \alias{evaluate,IntegralScore,TwoStageDesign-method}
 \title{Scores}
 \usage{
-\S4method{show}{Score}(object)
-
 expected(s, data_distribution, prior, ...)
 
-\S4method{expected}{ConditionalScore}(s, data_distribution, prior, ...)
+\S4method{expected}{ConditionalScore}(s, data_distribution, prior,
+  label = NA_character_, ...)
 
 evaluate(s, design, ...)
 
@@ -22,8 +20,6 @@ evaluate(s, design, ...)
   optimization = FALSE, subdivisions = 10000L, ...)
 }
 \arguments{
-\item{object}{object to show}
-
 \item{s}{\code{\link[=Scores]{Score}} object}
 
 \item{data_distribution}{\code{\link{DataDistribution}} object}
@@ -31,6 +27,8 @@ evaluate(s, design, ...)
 \item{prior}{a \code{\link{Prior}} object}
 
 \item{...}{further optional arguments}
+
+\item{label}{object label (string)}
 
 \item{design}{object}
 

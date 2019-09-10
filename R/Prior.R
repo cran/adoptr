@@ -26,7 +26,17 @@
 #'
 #' @aliases Prior
 #' @exportClass Prior
-setClass("Prior")
+setClass("Prior", representation(label = "character"))
+
+
+
+
+setMethod("show", signature(object = "Prior"), function(object) {
+    cat(print(object), "\n")
+})
+
+
+
 
 
 #' Get support of a prior or data distribution

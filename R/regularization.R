@@ -9,6 +9,7 @@
 #' @template s
 #' @template design
 #' @template optimization
+#' @template label
 #' @template dotdotdot
 #' @param subdivisions number of subdivisions to use for adaptive integration
 #'   (only affects non-optimization code)
@@ -30,7 +31,8 @@ setClass("AverageN2", representation(
 #'
 #' @rdname AverageN2-class
 #' @export
-AverageN2 <- function() new("AverageN2", dummy = FALSE)
+AverageN2 <- function(label = NA_character_) new("AverageN2", label = label, dummy = FALSE)
+
 
 
 #' @examples
@@ -88,15 +90,14 @@ setMethod(".evaluate", signature("AverageN2", "TwoStageDesign"),
 #' @template design
 #' @template optimization
 #' @template dotdotdot
+#' @template label
 #'
 #' @seealso See \code{\link{AverageN2}} for a regularization of
 #'  the second-stage sample size.
 #'
 #' @aliases N1
 #' @exportClass N1
-setClass("N1", representation(
-    dummy = 'logical'
-),
+setClass("N1", representation(dummy = 'logical'),
 contains = "UnconditionalScore")
 
 #' @examples
@@ -106,7 +107,7 @@ contains = "UnconditionalScore")
 #'
 #' @rdname N1-class
 #' @export
-N1 <- function() new("N1", dummy = FALSE)
+N1 <- function(label = NA_character_) new("N1", label = label, dummy = FALSE)
 
 
 #' @examples

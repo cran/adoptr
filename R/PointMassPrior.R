@@ -22,19 +22,41 @@ setClass("PointMassPrior", representation(
 #' @param theta numeric vector of pivot points with positive prior mass
 #' @param mass numeric vector of probability masses at the pivot points
 #'     (must sum to 1)
+#' @template label
 #'
-#' @return an object of class \code{PointMassPrior}
+#' @return an object of class \code{PointMassPrior}, \code{theta} is
+#' automatically sorted in ascending order
 #'
 #' @examples
 #' PointMassPrior(c(0, .5), c(.3, .7))
 #'
 #' @rdname PointMassPrior-class
 #' @export
-PointMassPrior <- function(theta, mass) {
+PointMassPrior <- function(theta, mass, label = NA_character_) {
     if (sum(mass) != 1)
         stop("mass must sum to one")
-    new("PointMassPrior", theta = theta, mass = mass)
+    new("PointMassPrior", theta = theta[order(theta)], mass = mass[order(theta)],
+        label = label)
 }
+
+
+
+
+setMethod("print", signature('PointMassPrior'), function(x, ...) {
+    name <- if (!is.na(x@label)) x@label else 'PointMass'
+    if (length(x@theta) == 1)
+        glue::glue("{name}<{sprintf('%.2f',x@theta)}>")
+    else
+        paste0(
+            glue::glue("{name}<"),
+            paste0(glue::glue("Pr[{sprintf('%.2f',x@theta)}]={sprintf('%3.2f',x@mass)}"), collapse = ";"),
+            ">",
+            collapse = ""
+        )
+})
+
+
+
 
 
 #' @examples
@@ -124,11 +146,3 @@ setMethod("posterior", signature("DataDistribution", "PointMassPrior", "numeric"
         mass <- mass / sum(mass) # normalize
         return(PointMassPrior(prior@theta, mass))
     })
-
-
-
-#' @rdname PointMassPrior-class
-#' @param object object of class \code{PointMassPrior}
-#' @export
-setMethod("show", signature(object = "PointMassPrior"),
-          function(object) cat(class(object)[1]))

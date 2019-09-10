@@ -4,13 +4,10 @@
 \name{ContinuousPrior-class}
 \alias{ContinuousPrior-class}
 \alias{ContinuousPrior}
-\alias{show,ContinuousPrior-method}
 \title{Continuous univariate prior distributions}
 \usage{
-ContinuousPrior(pdf, support, tighten_support = FALSE,
-  check_normalization = TRUE)
-
-\S4method{show}{ContinuousPrior}(object)
+ContinuousPrior(pdf, support, label = NA_character_,
+  tighten_support = FALSE, check_normalization = TRUE)
 }
 \arguments{
 \item{pdf}{vectorized univariate PDF function}
@@ -18,12 +15,12 @@ ContinuousPrior(pdf, support, tighten_support = FALSE,
 \item{support}{numeric vector of length two with the bounds of
 the compact interval on which the pdf is positive.}
 
+\item{label}{object label (string)}
+
 \item{tighten_support}{logical indicating if the support should be tightened}
 
 \item{check_normalization}{logical indicating if it should be checked
 that \code{pdf} defines a density.}
-
-\item{object}{object of class \code{ContinuousPrior}}
 }
 \description{
 \code{ContinuousPrior} is a sub-class of \code{\link{Prior}} implementing
