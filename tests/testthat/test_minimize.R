@@ -5,8 +5,6 @@ context("check minimize()")
 # preliminaries
 order <- 5L
 
-initial_design <- TwoStageDesign(25, 0, 2, rep(35.0, order), rep(1.96, order))
-
 null        <- PointMassPrior(.0, 1)
 alternative <- PointMassPrior(.4, 1)
 datadist    <- Normal(two_armed = FALSE)
@@ -19,6 +17,8 @@ toer  <- Power(datadist, null)
 
 alpha <- 0.05
 beta  <- 0.2
+
+initial_design <- get_initial_design(.4, alpha, beta, "two-stage", datadist, order)
 
 
 
@@ -80,7 +80,7 @@ test_that("Optimal one-stage design can be computed", {
             pow  >= 1 - beta,
             toer <= alpha
         ),
-        initial_design = OneStageDesign(100, 1.97)
+        initial_design = get_initial_design(.4, alpha, beta, "one-stage", datadist, order)
     )
 
     expect_equal(
@@ -99,7 +99,7 @@ test_that("Optimal one-stage design can be computed", {
 
 test_that("Optimal group-sequential design is computable", {
 
-    initial_design_gs <- GroupSequentialDesign(25, 0, 2, 35, 1.96, order)
+    initial_design_gs <- get_initial_design(.4, alpha, beta, "group-sequential", datadist, order)
 
     opt_gs <<- minimize(
         ess,
@@ -185,17 +185,35 @@ test_that("base-case satisfies constraints", {
     )
 
     # compute summaries
-    out <- summary(opt_ts$design, "power" = pow, "toer" = toer, rounded = FALSE)
+    out <- summary(opt_ts$design, "power" = pow, "toer" = toer, "CP" = cp, rounded = FALSE)
+
+    out2 <- summary(opt_ts$design, "power" = pow, "toer" = toer, rounded = FALSE)
+
+    out3 <- summary(opt_ts$design,  "CP" = cp, rounded = FALSE)
+
+    out4 <- summary(opt_ts$design, rounded = TRUE)
 
     expect_equal(
-        as.numeric(out$scores["power"]),
+        as.numeric(out$uncond_scores["power"]),
         0.8,
         tolerance = 1e-3, scale = 1)
 
     expect_equal(
-        as.numeric(out$scores["toer"]),
+        as.numeric(out$uncond_scores["power"]),
+        as.numeric(out2$uncond_scores["power"]),
+        tolerance = 1e-3, scale = 1)
+
+    expect_equal(
+        as.numeric(out$uncond_scores["toer"]),
         0.05,
         tolerance = 1e-3, scale = 1)
+
+
+    expect_equal(
+        as.numeric(out$uncond_scores["toer"]),
+        as.numeric(out2$uncond_scores["toer"]),
+        tolerance = 1e-3, scale = 1)
+
 
 }) # end base-case respects constraints
 
@@ -300,3 +318,29 @@ test_that("conditional constraints work", {
 
 
 }) # end 'conditional constraints work'
+
+
+
+
+test_that("heuristical initial design works", {
+    expect_error(
+        get_initial_design(.4, .025, .2, "adaptive", Normal(), 6L)
+    )
+
+    expect_error(
+        get_initial_design(.4, 1.025, .2, "two-stage", Normal(), 6L)
+    )
+
+    expect_true(
+        is(get_initial_design(.4, .025, .2, "two-stage", Normal(F), 6L), "TwoStageDesign")
+    )
+
+    expect_true(
+        is(get_initial_design(.4, .025, .2, "group-sequential", Normal(), 6L), "GroupSequentialDesign")
+    )
+
+    expect_true(
+        is(get_initial_design(.4, .025, .2, "one-stage", Normal(), 6L), "OneStageDesign")
+    )
+
+}) # end 'heuristical initial design works'

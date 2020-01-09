@@ -24,13 +24,13 @@ power <- Power(datadist, H_1)
 toer  <- Power(datadist, H_0)
 
 ## ----create-design-------------------------------------------------------
-initial_design <- TwoStageDesign(
-    n1    = 25,
-    c1f   = 0,
-    c1e   = 2.5,
-    n2    = 50, 
-    c2    = 1.96,
-    order = 7L
+initial_design <- get_initial_design(
+  theta = .4,
+  alpha = .025,
+  beta  = .2,
+  type  = "two-stage",
+  dist  = datadist,
+  order = 7L
 )
 
 ## ----check-power---------------------------------------------------------

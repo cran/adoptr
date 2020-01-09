@@ -1,7 +1,7 @@
 Package: adoptr
 Type: Package
 Title: Adaptive Optimal Two-Stage Designs in R
-Version: 0.3.0
+Version: 0.3.2
 Authors@R: c(
         person("Kevin", "Kunzmann", role = c("aut", "cre"), email = "kevin.kunzmann@mrc-bsu.cam.ac.uk"),
         person("Maximilian", "Pilz", role = c("aut"), email = "pilz@imbi.uni-heidelberg.de")
@@ -25,13 +25,13 @@ Collate: adoptr.R util.R DataDistribution.R Prior.R PointMassPrior.R
         OneStageDesign.R Scores.R constraints.R minimize.R
         ConditionalPower.R ConditionalSampleSize.R regularization.R
         CompositeScore.R
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 BugReports: https://github.com/kkmann/adoptr/issues
 URL: https://github.com/kkmann/adoptr
 NeedsCompilation: no
-Packaged: 2019-11-25 09:58:00 UTC; kevin
+Packaged: 2020-01-08 15:59:08 UTC; kevin
 Author: Kevin Kunzmann [aut, cre],
   Maximilian Pilz [aut]
 Maintainer: Kevin Kunzmann <kevin.kunzmann@mrc-bsu.cam.ac.uk>
 Repository: CRAN
-Date/Publication: 2019-11-25 11:10:02 UTC
+Date/Publication: 2020-01-09 14:20:14 UTC
