@@ -1,4 +1,4 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE-----------------------------------------------
 knitr::opts_chunk$set(
   collapse   = TRUE,
   comment    = "#>",
@@ -6,28 +6,28 @@ knitr::opts_chunk$set(
   fig.height = 5
 )
 
-## ----setup---------------------------------------------------------------
+## ----setup----------------------------------------------------------
 library(adoptr)
 
-## ------------------------------------------------------------------------
+## -------------------------------------------------------------------
 setClass("FutilityStopping", contains = "ConditionalScore")
 
 # constructor
 FutilityStopping <- function() new("FutilityStopping")
 
-## ------------------------------------------------------------------------
+## -------------------------------------------------------------------
 setMethod("evaluate", signature("FutilityStopping", "TwoStageDesign"),
           function(s, design, x1, optimization = FALSE, ...) 
               ifelse(x1 < design@c1f, 1, 0)
 )
 
-## ----p-cont--------------------------------------------------------------
+## ----p-cont---------------------------------------------------------
 pr_early_futility <- expected(
   FutilityStopping(), 
   Normal(), PointMassPrior(.0, 1)
 )
 
-## ----define-design-------------------------------------------------------
+## ----define-design--------------------------------------------------
 design <- TwoStageDesign(
     n1  = 100,
     c1f = .0,
@@ -38,9 +38,9 @@ design <- TwoStageDesign(
 
 plot(design)
 
-## ----evaluate-p-cont-----------------------------------------------------
+## ----evaluate-p-cont------------------------------------------------
 evaluate(pr_early_futility, design)
 
-## ----check---------------------------------------------------------------
+## ----check----------------------------------------------------------
 pnorm(design@c1f)
 
