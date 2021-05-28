@@ -264,6 +264,13 @@ test_that("base-case results are consistent - no post processing", {
         evaluate(ess, opt_ts$design),
         tolerance = .5, scale = 1)
 
+    # maximum sample size of adaptive design is larger than of one-stage design
+    mss <- MaximumSampleSize()
+    expect_lte(
+        evaluate(mss, opt_os$design),
+        evaluate(mss, opt_ts$design)
+    )
+
 }) # end 'base-case results are consistent'
 
 
@@ -313,7 +320,7 @@ test_that("conditional constraints work", {
 
     expect_equal(
         capture.output(print(opt_os)),
-        "OneStageDesign<optimized;n=39;c=1.64>"
+        "OneStageDesign<optimized;n=39;c=1.64> "
     )
 
 

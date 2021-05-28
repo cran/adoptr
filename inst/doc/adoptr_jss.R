@@ -15,25 +15,6 @@ knitr::opts_chunk$set(
 )
 options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
 
-## ----maximal-sample-size, cache=FALSE, include=FALSE----------------
-setClass("MaximalSampleSize", contains = "UnconditionalScore")
-
-# Define constructor
-MaximalSampleSize <- function() 
-  new("MaximalSampleSize")
-
-# Define corresponding evaluate method
-setMethod("evaluate", 
-          signature("MaximalSampleSize", "TwoStageDesign"),
-          function(s, design, optimization = FALSE, ...) {
-              x1 <- seq(design@c1f, design@c1e, length.out = 1000)
-              ss <- sapply(x1, function(z) adoptr:::n(design, z, round = !optimization))
-              return(max(ss))
-          }
-)
-
-mss <- MaximalSampleSize()
-
 ## ----plot-opts, include=FALSE---------------------------------------
 add_opts <- function(p) {
   p + theme_bw() +
@@ -65,6 +46,7 @@ null        <- PointMassPrior(theta = .0, mass = 1.0)
 alternative <- PointMassPrior(theta = .3, mass = 1.0)
 power       <- Power(dist = datadist, prior = alternative)
 toer        <- Power(dist = datadist, prior = null)
+mss         <- MaximumSampleSize()
 
 ## ----case-1-ess-----------------------------------------------------
 ess <- ExpectedSampleSize(dist = datadist, prior = alternative)
@@ -104,6 +86,9 @@ ess <- ExpectedSampleSize(dist = datadist, prior = prior)
 
 ## ----case-2-pwr-mcr-------------------------------------------------
 epower <- Power(dist = datadist, prior = condition(prior, c(.1, 1)))
+
+## ----case-2-evaluate-epwr-opt1--------------------------------------
+evaluate(epower, opt1$design)
 
 ## ----case-2-optimization, warning=FALSE-----------------------------
 opt2 <- minimize(ess, subject_to(epower >= 0.9, toer <= 0.025),
