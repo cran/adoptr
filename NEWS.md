@@ -1,3 +1,11 @@
+# adoptr 1.0.0
+
+* added references to article in journal of statistical software
+
+# adoptr 0.4.3
+
+* corrected class diagram in vignette
+
 # adoptr 0.4.2
 
 * minor bug/print fixes

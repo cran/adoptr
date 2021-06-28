@@ -1,7 +1,7 @@
 Package: adoptr
 Type: Package
 Title: Adaptive Optimal Two-Stage Designs in R
-Version: 0.4.2
+Version: 1.0.0
 Authors@R: c(
         person("Kevin", "Kunzmann", 
                 role = c("aut", "cre"), 
@@ -19,14 +19,12 @@ Description: Optimize one or two-arm, two-stage designs for clinical trials with
     objectives.
     Optimization under uncertainty and conditional (given stage-one outcome) 
     constraints are supported.
-    See Pilz M, Kunzmann K, Herrmann C, Rauch G, Kieser M. A variational 
-    approach to optimal two-stage designs. Statistics in Medicine. 2019;38(21):4159–4171.
-    <doi:10.1002/sim.8291> for details.
+    See <doi:10.1002/sim.8291> and <doi:10.18637/jss.v098.i09> for details.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Suggests: knitr, rmarkdown, testthat, covr, rpact, vdiffr, pwr, dplyr,
         ggplot2, tidyr, gridExtra, bookdown
-Imports: nloptr, methods, glue, stringr
+Imports: nloptr, methods, glue
 VignetteBuilder: knitr
 Collate: adoptr.R util.R DataDistribution.R BinomialDistribution.R
         NormalDistribution.R StudentDistribution.R Prior.R
@@ -38,9 +36,9 @@ RoxygenNote: 7.1.1
 BugReports: https://github.com/kkmann/adoptr/issues
 URL: https://github.com/kkmann/adoptr
 NeedsCompilation: no
-Packaged: 2021-05-28 11:12:37 UTC; kevin
+Packaged: 2021-06-28 11:34:35 UTC; kevin
 Author: Kevin Kunzmann [aut, cre] (<https://orcid.org/0000-0002-1140-7143>),
   Maximilian Pilz [aut] (<https://orcid.org/0000-0002-9685-1613>)
 Maintainer: Kevin Kunzmann <kevin.kunzmann@mrc-bsu.cam.ac.uk>
 Repository: CRAN
-Date/Publication: 2021-05-28 12:00:02 UTC
+Date/Publication: 2021-06-28 13:00:02 UTC
