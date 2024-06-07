@@ -55,7 +55,7 @@ size) and \ifelse{html}{\out{c<sub>2</sub>(&middot;)}}{\eqn{c_2(\cdot)}}
 \ifelse{html}{\out{X<sub>1</sub>=x<sub>1</sub>}}{\eqn{X_1=x_1}}.
 \ifelse{html}{\out{X<sub>1</sub>}}{\eqn{X_1}} denotes the first-stage test
 statistic. A brief description on this definition of two-stage designs can be
-read \href{https://kkmann.github.io/adoptr/articles/adoptr.html}{here}.
+read \href{https://optad.github.io/adoptr/articles/adoptr.html}{here}.
 For available methods, see the 'See Also' section at the end of this page.
 }
 \details{

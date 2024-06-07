@@ -45,7 +45,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This manuscript was accepted for publication in the Journal of Statistical Software.
+This manuscript is published in the Journal of Statistical Software
+under \url{https://doi.org/10.18637/jss.v098.i09}.
 
 
 ```{r setup, include=FALSE}
@@ -63,6 +64,7 @@ knitr::opts_chunk$set(
     tidy=FALSE,
     eval=buildvignette
 )
+backup_options <- options()
 options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
 ```
 
@@ -269,8 +271,8 @@ $$
 of a two-stage design for given $n_1,c_1^f, c_1^e$ with respect to $n_2(\cdot)$
 for given power and type one error rate constraints.
 The function $c_2(\cdot)$, however, was not optimized.
-Instead, @JT2015 used a combination test approach to derive $c_2$ given
-$n_2(\cdot)$ and $n_1$ (cf. Equation \@ref(eq:inverse-normal)).
+Instead, @JT2015 used the inverse-normal combination test approach to derive $c_2$
+given $n_2(\cdot)$ and $n_1$.
 In @variational, the authors demonstrated that this restriction is not
 necessary and that the variational problem of deriving both functions $n_2(\cdot)$
 and $c_2(\cdot)$ given $n_1,c_1^f, c_1^e$ to minimize expected sample size can be
@@ -459,7 +461,7 @@ The package **adoptr** is based on **R**'s S4 class system.
 This allows to use multiple dispatch on the classes of multiple arguments 
 to a method.
 In this section, the central components of **adoptr** are described briefly.
-Figure \@ref(fig:class-diagram) gives a structural overview of the main
+The following figure gives a structural overview of the main
 classes in **adoptr**.
 
 ```{r class-diagram, out.width='100%', echo=FALSE, fig.cap='Overview of the most important classes and methods (in italic) in the R-package adoptr. A subclassing relationship is indicated by a connecting line to the  corresponding super class above it. The most important methods for each class are listed under the respective class name in italic font.'}
@@ -637,10 +639,9 @@ $x_1$ on the $x$-axis and the respective function on the $y$-axis.
 ```{r, standard-case, fig.height=2.25*1.25, fig.width=6*1.25, out.width='100%', fig.cap="Optimal sample size, critical value, and conditional power plotted against the interim test statistic (built-in plot method)."}
 plot(opt1$design, `Conditional power` = cp)
 ```
-Note the slightly bent shape of the $c_2(\cdot)$ function
-(cf. Figure \@ref(fig:standard-case), second plot).
+Note the slightly bent shape of the $c_2(\cdot)$ function.
 For two-stage designs based on the inverse-normal combination function, $c_2(\cdot)$
-would be linear by definition (cf. Equation \@ref(eq:inverse-normal)).
+would be linear by definition.
 Since the optimal shape of $c_2(\cdot)$ is not linear (but almost), inverse-normal
 combination methods are slightly less efficient (cf. @variational for a more
 detailed discussion of this issue).
@@ -753,7 +754,7 @@ evaluate(epower, opt3$design)
 ```
 
 The three optimal designs which have been computed so far are depicted
-in a joint plot (cf. Figure \@ref(fig:comparison)).
+in a joint plot.
 The design using the continuous prior requires higher sample sizes
 due to the higher uncertainty about $\theta$.
 The utility maximization approach results in similar shapes of $n(\cdot)$ and
@@ -875,8 +876,7 @@ opt4 <- minimize(ess, subject_to(toer <= 0.025, power >= 0.9, cp >= 0.8),
 Comparing the optimal design that has been computed here with the same constraints
 but without a conditional power constraint (cf. beginning of this chapter),
 the optimal design with the additional constraint requires larger sample sizes in
-regions where the conditional power would usually be below the given threshold
-(cf. Figure \@ref(fig:cp-constraint), first and third plot).
+regions where the conditional power would usually be below the given threshold.
 Overall, the additional constraint reduces the feasible solution space and
 consequently increases the expected sample size
 (`r if (buildvignette) evaluate(ess, opt4$design) %>% round(1)` with conditional power constraint
@@ -986,7 +986,7 @@ Note that it is also possible to 'un-fix' parameters again using the
 opt5 <- minimize(ess, subject_to(toer <= 0.025, power >= 0.9),
                  initial_design)
 ```
-Figure \@ref(fig:tunable) visually compares the original design with the new,
+The following figure visually compares the original design with the new,
 more restricted design.
 The designs are qualitatively similar, but fixing $n_1$ and $c_1^f$ does
 come at the price of slightly increased expected sample size
@@ -1102,7 +1102,7 @@ To facilitate the process of validation as much as possible,
 **adoptr** implements the following measures:
 
 1. *Open-source development:* The entire development of **adoptr** is
-organized around a public GitHub.com repository (https://github.com/kkmann/adoptr).
+organized around a public GitHub.com repository (https://github.com/optad/adoptr).
 Anybody can freely download the source code, browse the development history,
 raise issues, or contribute to the code base by opening pull requests.
 2. *CRAN releases:* Regular CRAN [@cran] releases of updated versions maximize
@@ -1118,7 +1118,7 @@ and speeds up the development process.
 use of the continuous integration and deployment services GitHub Actions [@ghactions].
 Each new commit on the public GitHub.com repository is immediately run through
 the automated testing pipeline.
-Merges to the master branch are only possible after tests were
+Merges to the main branch are only possible after tests were
 passed successfully and a contributor reviewed and approved the changes
 ('branch protection system').
 Continuous deployment allows automatically updating code-coverage statistics
@@ -1132,7 +1132,7 @@ once during testing (currently 100\%) and enables easy online publication of the
 Beyond the standard documentation generated using **roxygen2** [@roxygen],
 we also make use of the **pkgdown** [@pkgdown] package and the free GitHub pages
 service to publish a static **html** version of the documentation online at
-https://kkmann.github.io/adoptr/.
+https://optad.github.io/adoptr/.
 This includes both the function reference and the vignettes in a consistent and
 easily accessible format.
 The online documentation experience is further improved by the integration of
@@ -1142,7 +1142,7 @@ standard unit testing framework within a package itself
 (cf. https://cran.r-project.org/web/packages/policies.html).
 Long-running test suites also hinder active development with a strict
 continuous integration and continuous deployment (CI/CD)
-workflow since changes to the master branch require passing the automated tests.
+workflow since changes to the main branch require passing the automated tests.
 We, therefore, decided to restrict the internal unit tests to a bare minimum with
 a clear focus on coverage and technical integrity of the package.
 To demonstrate correctness of our results over a larger set of examples and in
@@ -1194,7 +1194,9 @@ capabilities, is able to provide fast and precise (second-order) gradient
 information for user-defined objective functions.
 
 
-
+```{r reset-options, include=FALSE}
+options(backup_options)
+```
 
 # Acknowledgments
 

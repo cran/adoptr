@@ -18,7 +18,34 @@ toer  <- Power(datadist, null)
 alpha <- 0.05
 beta  <- 0.2
 
+opt_os <- minimize(
+    ess,
+    subject_to(
+        pow  >= 1 - beta,
+        toer <= alpha
+    ),
+    initial_design = get_initial_design(.4, alpha, beta, "one-stage", datadist, order)
+)
+
+opt_gs <- minimize(
+    ess,
+    subject_to(
+        pow  >= 1 - beta,
+        toer <= alpha
+    ),
+    initial_design = get_initial_design(.4, alpha, beta, "group-sequential", datadist, order)
+)
+
 initial_design <- get_initial_design(.4, alpha, beta, "two-stage", datadist, order)
+
+opt_ts <- minimize(
+    ess,
+    subject_to(
+        pow  >= 1 - beta,
+        toer <= alpha
+    ),
+    initial_design
+)
 
 
 
@@ -74,15 +101,6 @@ test_that("nloptr invalid initial values error works", {
 
 test_that("Optimal one-stage design can be computed", {
 
-    opt_os <<- minimize(
-        ess,
-        subject_to(
-            pow  >= 1 - beta,
-            toer <= alpha
-        ),
-        initial_design = get_initial_design(.4, alpha, beta, "one-stage", datadist, order)
-    )
-
     expect_equal(
         opt_os$design@c1f,
         qnorm(1 - alpha),
@@ -98,17 +116,6 @@ test_that("Optimal one-stage design can be computed", {
 
 
 test_that("Optimal group-sequential design is computable", {
-
-    initial_design_gs <- get_initial_design(.4, alpha, beta, "group-sequential", datadist, order)
-
-    opt_gs <<- minimize(
-        ess,
-        subject_to(
-            pow  >= 1 - beta,
-            toer <= alpha
-        ),
-        initial_design_gs
-    )
 
     expect_equal(
         round(evaluate(pow, opt_gs$design), 1),
@@ -174,15 +181,6 @@ test_that("Optimal group-sequential design is superior to standard gs design", {
 
 
 test_that("base-case satisfies constraints", {
-
-    opt_ts <<- minimize(
-        ess,
-        subject_to(
-            pow  >= 1 - beta,
-            toer <= alpha
-        ),
-        initial_design
-    )
 
     # compute summaries
     out <- summary(opt_ts$design, "power" = pow, "toer" = toer, "CP" = cp, rounded = FALSE)
@@ -348,6 +346,10 @@ test_that("heuristical initial design works", {
 
     expect_true(
         is(get_initial_design(.4, .025, .2, "one-stage", Normal(), 6L), "OneStageDesign")
+    )
+
+    expect_true(
+        is(get_initial_design(.3, .025, .2, "two-stage", Binomial(.2), 5L), "TwoStageDesign")
     )
 
 }) # end 'heuristical initial design works'

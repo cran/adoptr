@@ -13,10 +13,10 @@
 #' @section Quickstart:
 #'
 #' For a sample workflow and a quick demo of the capabilities, see
-#' \href{https://kkmann.github.io/adoptr/articles/adoptr.html}{here}.
+#' \href{https://optad.github.io/adoptr/articles/adoptr.html}{here}.
 #'
 #' A more detailed description of the background and the usage of \pkg{adoptr}
-#' can be found \href{https://kkmann.github.io/adoptr/articles/adoptr_jss.html}{here}
+#' can be found \href{https://optad.github.io/adoptr/articles/adoptr_jss.html}{here}
 #' or here <doi:10.18637/jss.v098.i09> .
 #'
 #' A variety of examples is presented in the validation report hosted
@@ -51,11 +51,10 @@
 #' scores.
 #' Available scores are \code{\link{ConditionalPower}},
 #' \code{\link{ConditionalSampleSize}}, \code{\link{Power}}, and
-#' \code{\link{ExpectedSampleSize}}..
+#' \code{\link{ExpectedSampleSize}}.
 #'
 #'
 #'
 #' @import methods
-#' @docType package
 #' @name adoptr
-NULL
+"_PACKAGE"

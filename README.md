@@ -1,13 +1,13 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2616951.svg)](https://doi.org/10.5281/zenodo.2616951)
 
-[![R-CMD-check](https://github.com/kkmann/adoptr/actions/workflows/check-package.yaml/badge.svg)](https://github.com/kkmann/adoptr/actions/workflows/check-package.yaml)
-[![Codecov test coverage](https://codecov.io/gh/kkmann/adoptr/branch/master/graph/badge.svg)](https://codecov.io/gh/kkmann/adoptr?branch=master)
+[![R-CMD-check](https://github.com/optad/adoptr/actions/workflows/check-package.yaml/badge.svg)](https://github.com/optad/adoptr/actions/workflows/check-package.yaml)
+[![Codecov test coverage](https://codecov.io/gh/optad/adoptr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/optad/adoptr?branch=main)
 [![CRAN status](https://www.r-pkg.org/badges/version/adoptr)](https://cran.r-project.org/package=adoptr)
 [![](http://cranlogs.r-pkg.org/badges/last-month/adoptr?color=green)](https://cran.r-project.org/package=adoptr)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/adoptr?color=green)](https://cran.r-project.org/package=adoptr)
 
 
-# adoptr <a href='https://github.com/kkmann/adoptr'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# adoptr <a href='https://github.com/optad/adoptr'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 
 Adaptive optimal two-stage designs for clinical trials with one or two arms. 
@@ -30,14 +30,14 @@ install.packages("adoptr")
 and the development version directly from [GitHub](https://github.com/) with:
 
 ```r
-devtools::install_github("kkmann/adoptr")
+devtools::install_github("optad/adoptr")
 ```
 
 
 
 ## Documentation
 
-The documentation is hosted at https://kkmann.github.io/adoptr.
+The documentation is hosted at https://optad.github.io/adoptr.
 
 
 

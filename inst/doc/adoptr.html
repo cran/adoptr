@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2021-06-28" />
+<meta name="date" content="2024-06-07" />
 
 <title>Get started with adoptr</title>
 
@@ -28,38 +28,31 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
-  }
-});
-</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -71,55 +64,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -128,13 +120,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -339,103 +338,174 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">Get started with adoptr</h1>
-<h4 class="date">2021-06-28</h4>
+<h4 class="date">2024-06-07</h4>
 
 
 
 <div id="two-stage-designs-for-clinical-trials" class="section level2">
 <h2>Two-stage designs for clinical trials</h2>
-<p>In prospectively planned confirmatory clinical trials there has been a long-standing debate about the merits of allowing pre-planned interim analyses to stop or modify an ongoing trial, cf.  <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/sim.6472">BAUER <em>et al.</em>, 2016</a>. It is common consensus that such two-stage designs should still maintain strict control of the maximal type one error rate despite the data dependent decision at the interim analysis. Most authors use combination function approaches to combine either the independent p values or test statistics from the respective stages. Doing so with pre-specified weights maintains the type one error rate control.</p>
-<p>With <strong>adoptr</strong> we provide tools to explore optimal two-stage designs for one or two-arm clinical trials with (asymptotically) normally distributed and stage-wise independent test statistics. In <a href="https://doi.org/10.1002/sim.8291">Pilz <em>et al.</em>, 2019</a>, it was argued that such techniques are not necessary, in fact, that they are counter-productive, since the pre-specified weights might be sub-optimal. Instead, one may see the problem of defining an optimal two-stage designs as a variational problem to find the optimal configuration <span class="math display">\[
+<p>In prospectively planned confirmatory clinical trials there has been
+a long-standing debate about the merits of allowing pre-planned interim
+analyses to stop or modify an ongoing trial, cf.  <a href="https://doi.org/10.1002/sim.6472">Bauer <em>et al.</em>, 2016</a>.
+It is common consensus that such two-stage designs should still maintain
+strict control of the maximal type one error rate despite the data
+dependent decision at the interim analysis. Most authors use combination
+function approaches to combine either the independent p values or test
+statistics from the respective stages. Doing so with pre-specified
+weights maintains the type one error rate control.</p>
+<p>With <strong>adoptr</strong> we provide tools to explore optimal
+two-stage designs for one or two-arm clinical trials with
+(asymptotically) normally distributed and stage-wise independent test
+statistics. In <a href="https://doi.org/10.1002/sim.8291">Pilz <em>et
+al.</em>, 2019</a>, it was argued that such techniques are not
+necessary, in fact, that they are counter-productive, since the
+pre-specified weights might be sub-optimal. Instead, one may see the
+problem of defining an optimal two-stage designs as a variational
+problem to find the optimal configuration <span class="math display">\[
 \mathcal{D}:=\big(n_1, c_1^e, c_1^f, n_2(\cdot), c_2(\cdot)\big)
-\]</span> directly for a given objective function and potentially a set of constraints. The relaxation of this mixed-integer problem to the real numbers can then be solved with standard methods from analysis. E.g., one could construct an implicit solution by solving the corresponding Euler-Lagrange equation for given first-stage and then find an optimal first-stage configuration, cf. <a href="https://doi.org/10.1002/sim.8291">Pilz <em>et al.</em>, 2019</a>. Instead, the <strong>adoptr</strong> package implements a direct numerical solution algorithm by embedding the variation problem via a set of pivot points in the <span class="math inline">\(\mathbb{R}^k\)</span> and solving the corresponding finite-dimensional problem using gradient-free numerical optimization procedures (COBYLA / nloptr).</p>
+\]</span> directly for a given objective function and potentially a set
+of constraints. The relaxation of this mixed-integer problem to the real
+numbers can then be solved with standard methods from analysis. E.g.,
+one could construct an implicit solution by solving the corresponding
+Euler-Lagrange equation for given first-stage and then find an optimal
+first-stage configuration, cf. <a href="https://doi.org/10.1002/sim.8291">Pilz <em>et al.</em>, 2019</a>.
+Instead, the <strong>adoptr</strong> package implements a direct
+numerical solution algorithm by embedding the variation problem via a
+set of pivot points in the <span class="math inline">\(\mathbb{R}^k\)</span> and solving the
+corresponding finite-dimensional problem using gradient-free numerical
+optimization procedures (COBYLA / nloptr).</p>
 </div>
 <div id="example" class="section level1">
 <h1>Example</h1>
-<p>Consider the two-arm case comparing two group means mean. Let <span class="math inline">\(\delta\)</span> be the difference in means and assume that the aim is to reject the null hypothesis <span class="math inline">\(\mathcal{H}_0: \delta \leq 0\)</span>. Further assume that a power of 80% at <span class="math inline">\(\delta=0.4\)</span> and a type-one-error rate of 2.5% on the boundary of the null hypothesis <span class="math inline">\(\delta\leq0.0\)</span> is required.</p>
-<p>In this situation, the one-sided t-test would require a sample size of <span class="math inline">\(51\)</span> individuals per-group. If we were willing to accept the fact that the sample size of a two-stage design is inherently unknown at the planning stage, we could reduce the <em>expected</em> sample size under the alternative by optimizing a two-stage design with respect to this quantity. Since the two-stage design, by definition, has more degrees of freedom than the single-stage design, it must be at least as good in terms of expected sample size as the single-stage design - for which the expected sample size is always 51.</p>
+<p>Consider the two-arm case comparing two group means mean. Let <span class="math inline">\(\delta\)</span> be the difference in means and
+assume that the aim is to reject the null hypothesis <span class="math inline">\(\mathcal{H}_0: \delta \leq 0\)</span>. Further
+assume that a power of 80% at <span class="math inline">\(\delta=0.4\)</span> and a type-one-error rate of
+2.5% on the boundary of the null hypothesis <span class="math inline">\(\delta\leq0.0\)</span> is required.</p>
+<p>In this situation, the one-sided t-test would require a sample size
+of <span class="math inline">\(51\)</span> individuals per-group. If we
+were willing to accept the fact that the sample size of a two-stage
+design is inherently unknown at the planning stage, we could reduce the
+<em>expected</em> sample size under the alternative by optimizing a
+two-stage design with respect to this quantity. Since the two-stage
+design, by definition, has more degrees of freedom than the single-stage
+design, it must be at least as good in terms of expected sample size as
+the single-stage design - for which the expected sample size is always
+51.</p>
 <div id="define-hypotheses-and-data-generating-mechanism" class="section level2">
 <h2>Define hypotheses and data-generating mechanism</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(adoptr)</span></code></pre></div>
-<p>First, we define the null and alternative hypotheses as prior distributions over the unknown parameter <span class="math inline">\(\delta\)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="kw">PointMassPrior</span>(.<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>H_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">PointMassPrior</span>(.<span class="dv">4</span>, <span class="dv">1</span>)</span></code></pre></div>
-<p>Next, we define the data-generating mechanism (data distribution). Currently, normally distributed test statistics with known variance, and the normal approximation of binary endpoints are supported. In this example, we choose a normal distribution, i.e., assume a continuous outcome. For an example with binomial data distribution, cf. the vignette <a href="https://kkmann.github.io/adoptr/articles/composite-scores.html">composite scores</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>datadist &lt;-<span class="st"> </span><span class="kw">Normal</span>(<span class="dt">two_armed =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(adoptr)</span></code></pre></div>
+<p>First, we define the null and alternative hypotheses as prior
+distributions over the unknown parameter <span class="math inline">\(\delta\)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>H_0 <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(.<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>H_1 <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(.<span class="dv">4</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p>Next, we define the data-generating mechanism (data distribution).
+Currently, normally distributed test statistics with known variance, and
+the normal approximation of binary endpoints are supported. In this
+example, we choose a normal distribution, i.e., assume a continuous
+outcome. For an example with binomial data distribution, cf. the
+vignette <a href="https://optad.github.io/adoptr/articles/composite-scores.html">composite
+scores</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>datadist <span class="ot">&lt;-</span> <span class="fu">Normal</span>(<span class="at">two_armed =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="specify-optimization-problem" class="section level2">
 <h2>Specify optimization problem</h2>
-<p>We begin by defining the expected sample size under the alternative hypothesis:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>ess &lt;-<span class="st"> </span><span class="kw">ExpectedSampleSize</span>(datadist, H_<span class="dv">1</span>)</span></code></pre></div>
-<p>Similarly, we can define the power and the type-one-error rate by integrating conditional power with respect to the alternative or null hypothesis respectively:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>power &lt;-<span class="st"> </span><span class="kw">Power</span>(datadist, H_<span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>toer  &lt;-<span class="st"> </span><span class="kw">Power</span>(datadist, H_<span class="dv">0</span>)</span></code></pre></div>
-<p>To complete the problem specification, we only need to provide an initial design and an integration order for the Gaussian quadrature rule to be used for the numerical integration of the variational objective between <span class="math inline">\(c_1^f\)</span> and <span class="math inline">\(c_1^e\)</span>. <strong>adoptr</strong> provides a heuristic method to obtain an initial design. It is based on a one-stage design under specific constraints on type one error rate and power. However, it may be more efficient to use a situation-specific initial design.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>initial_design &lt;-<span class="st"> </span><span class="kw">get_initial_design</span>(</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="dt">theta =</span> <span class="fl">.4</span>,</span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="dt">alpha =</span> <span class="fl">.025</span>,</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="dt">beta  =</span> <span class="fl">.2</span>,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  <span class="dt">type  =</span> <span class="st">&quot;two-stage&quot;</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="dt">dist  =</span> datadist,</span>
-<span id="cb6-7"><a href="#cb6-7"></a>  <span class="dt">order =</span> 7L</span>
-<span id="cb6-8"><a href="#cb6-8"></a>)</span></code></pre></div>
-<p>The decision boundaries are heuristically picked in concordance with those of the single-stage design. We can then check whether the initial design fulfills the constraints on the operating characteristics:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">evaluate</span>(power, initial_design)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; [1] 0.9401854</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">evaluate</span>(toer, initial_design)</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#&gt; [1] 0.0246875</span></span></code></pre></div>
-<p>We can now proceed with defining and solving the optimization problem:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>opt_res &lt;-<span class="st"> </span><span class="kw">minimize</span>(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  </span>
-<span id="cb9-3"><a href="#cb9-3"></a>  ess,</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  </span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="kw">subject_to</span>(</span>
-<span id="cb9-6"><a href="#cb9-6"></a>    power <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.8</span>,</span>
-<span id="cb9-7"><a href="#cb9-7"></a>    toer  <span class="op">&lt;=</span><span class="st"> </span><span class="fl">.025</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a>  ),</span>
-<span id="cb9-9"><a href="#cb9-9"></a>  </span>
-<span id="cb9-10"><a href="#cb9-10"></a>  initial_design</span>
-<span id="cb9-11"><a href="#cb9-11"></a>)</span></code></pre></div>
-<p>Here, the default setting for the optimizer and box constraints seem to have worked out. The numerical procedure converged after</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>opt_res<span class="op">$</span>nloptr_return<span class="op">$</span>iterations</span></code></pre></div>
+<p>We begin by defining the expected sample size under the alternative
+hypothesis:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>ess <span class="ot">&lt;-</span> <span class="fu">ExpectedSampleSize</span>(datadist, H_1)</span></code></pre></div>
+<p>Similarly, we can define the power and the type-one-error rate by
+integrating conditional power with respect to the alternative or null
+hypothesis respectively:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist, H_1)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>toer  <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist, H_0)</span></code></pre></div>
+<p>To complete the problem specification, we only need to provide an
+initial design and an integration order for the Gaussian quadrature rule
+to be used for the numerical integration of the variational objective
+between <span class="math inline">\(c_1^f\)</span> and <span class="math inline">\(c_1^e\)</span>. <strong>adoptr</strong> provides a
+heuristic method to obtain an initial design. It is based on a one-stage
+design under specific constraints on type one error rate and power.
+However, it may be more efficient to use a situation-specific initial
+design.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>initial_design <span class="ot">&lt;-</span> <span class="fu">get_initial_design</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="at">theta =</span> .<span class="dv">4</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">alpha =</span> .<span class="dv">025</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">beta  =</span> .<span class="dv">2</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">type  =</span> <span class="st">&quot;two-stage&quot;</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="at">dist  =</span> datadist,</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="at">order =</span> 7L</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>)</span></code></pre></div>
+<p>The decision boundaries are heuristically picked in concordance with
+those of the single-stage design. We can then check whether the initial
+design fulfills the constraints on the operating characteristics:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">evaluate</span>(power, initial_design)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.9401854</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">evaluate</span>(toer, initial_design)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.0246875</span></span></code></pre></div>
+<p>We can now proceed with defining and solving the optimization
+problem:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>opt_res <span class="ot">&lt;-</span> <span class="fu">minimize</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  </span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  ess,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  </span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="fu">subject_to</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    power <span class="sc">&gt;=</span> <span class="fl">0.8</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    toer  <span class="sc">&lt;=</span> .<span class="dv">025</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  ),</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  </span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  initial_design</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>)</span></code></pre></div>
+<p>Here, the default setting for the optimizer and box constraints seem
+to have worked out. The numerical procedure converged after</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>opt_res<span class="sc">$</span>nloptr_return<span class="sc">$</span>iterations</span></code></pre></div>
 <p>iterations.</p>
-<p>We can plot the resulting optimized design may again be plotted together with its conditional power.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">plot</span>(</span>
-<span id="cb11-2"><a href="#cb11-2"></a>  opt_res<span class="op">$</span>design, </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="st">&quot;Conditional power&quot;</span> =<span class="st"> </span><span class="kw">ConditionalPower</span>(datadist, H_<span class="dv">1</span>)</span>
-<span id="cb11-4"><a href="#cb11-4"></a>)</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>We can plot the resulting optimized design may again be plotted
+together with its conditional power.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  opt_res<span class="sc">$</span>design, </span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="st">&quot;Conditional power&quot;</span> <span class="ot">=</span> <span class="fu">ConditionalPower</span>(datadist, H_1)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAAA21BMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrY6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZmY6ZpA6ZrY6kLY6kNtmAABmADpmAGZmOgBmOjpmOpBmZgBmZjpmZrZmkLZmkNtmtrZmtttmtv+QOgCQOjqQOmaQZjqQZmaQkDqQkJCQtpCQttuQ27aQ29uQ2/+2ZgC2Zjq2kDq2kGa2tma225C229u22/+2/7a2/9u2///bkDrbkGbbtmbbtpDbtrbb25Db27bb/7bb////tmb/25D/27b/29v//7b//9v///8kzLJAAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAZqUlEQVR4nO2di3bjVnJFIdmK1HHiTI/U3eMknlhqd96U82qPFE88EdWh+P9fFIDgW3jWPXWrCjx72eNZAnAKhbsJAiAJFEtCHFNYrwAhXVBQ4hoKSlxDQYlrKChxDQUlrqGgxDUUlLiGghLXUFDiGgpKXENBiWsoKHENBSWuoaDENRSUuIaCEtdQUOIaCkpcQ0GJaygocU2qoH/8UBRf/3P3PC935w/Vv8MSm+ccvnw6X6qePqPSNmve0EFLUzl7rfjlm6L4y+Z+94eua7X0VjlR0Hnx26eXfytuO2cKJujL3dcPX24unpZ//L57xr7pm7hyzctZ3Qr6WPxQljybNU3bDl1zAwfz6axdmqCLahx71w4haEbqppbL56vLzvn6pvfP6kLQxU1HG5tV6evVq6Dz4rr6T/karFbw+ep6+eVjUfzmqez6q2/OH56r98rZ4fvEp6J4WzZcT3m++rNPxdnffSjObstFvv6b6r+rOdcxuyWqvz5fFSW3+xM1WNwUb1cvu6LYtlCuafFXHw5WbDX9r8sdz2Nx8VTtgb6UK/rt+p2yWuxtvRX+cFf+U876h9Um+rDf/nqjvGw23t6fq1fJ8ZbQYb59/1s3UA7Ep2ogqp5/82E1dLsGXs1z0Ml2EDfz3e9vn301Bq9emqCPdXOlp1Wbj2ezcrt+rt4eFzflmpWvzafNht50UC5R/rOZ8nx1/vn56uyHxYdqSIofqj7Ww7OK2S2xXn5eHE5U4bEozr5/Wu01Nita/Xtcu5o+r9as8vjq4n9vzj9/2Y7T5dMvxfVqK9Qvrcu1duu/7zZMvf3WG2/3573/6ja7GcNqpesGqrXe9nxVD92ugeN5DjvZDOJmvoPts6fGcFCClmv6clcNYrlLrUWttun//P03Rd3hTtCvfthNqR3YDUk94FVfdcxuiXr5sv/b5f5EHX4pd9XVq+dyu6JVzeMVWwtc7dfLl9D1atL6LWW9V1q1tD++273VbsPU86023v6fN1tFv9mtoJsG9ktvhm7XwOE8rzupB3E33+H22akxFNBb/O3y/vw/yzepx2LF7WotFh/Ovv/TzaGgi9VbwmZKg6DX1f/fxOyWqJe/Ly6Xy/2JSrz8+1Vxu1q59YpWHR6v2Erg+/P/KH57c3lXz7K/QZYNgm7+vrdhVvXqjbf/581W0W92+6LZNLArfftK0ON5jjvZDOJ2Y+xvnz01hgM7SZoXf1G+ztcDtH0lbfXbHUX/6VNxuZnSuQfdUi2xrlGFHE5U4rEWdLOiB3vQZbUOxcWvlaDzs2/OZvdfrWYdvAfd3zDruHrj3R5sjddbQoPtSZJkD3rcyfEe9Hj7LHfnoANJvsz0dn2ZqTzUqHaa5YHGnm2X5UAfvcWfzcrTgc2UQ0Grw5ft/uPz4RLrOW7rDj/vfMdTrtx6hS63LVQr+UtxuGKrkS3fwCp9V+O0fwy6cnoraDXrZrOsDth3G2ZVst54x9urPEJ/0G52ubvMtDu+3L1G5tsjjuNj0I2gh51sBnG7Mfa3z54aw8FdqK/fvtYXueu1+Kn8/5/q0579s/jyVG495VDQ6sRwfUK4d628XqLeGhUXT9gL6a/576v6zP2n4vzzekWX8/qM9uAifjW9VKs8+76qmnt1Fv+0FbSa9b+2Z/FP+xumnr/eePt/biqoRHXIXV2o356hr/eIu7P4XQPH8xx1shnE7cbY3z77agzGz0edI1c8P+YXaAOAH0QKOohqH/Cl64o2WUFBraje9r/lDrSPKQtKSAMUlLiGghLXUFDiGgpKXENBiWsoKHENBSWuoaDENRSUuIaCEtdQUOIaCkpcQ0GJaygocQ0FJa6RCFr4A7tN/HG6/YkEFW8aLcADCE1DcML9UVDtNAQn3B8F1U5DcML9UVDtNAQn3B8F1U5DcML9UVDtNAQn3B8F1U5DcML9UVDtNAQn3B8F1U5DcML9UVDtNAQn3B8F1U5DcML9UVDtNAQn3B8F1U5DcML9UdAxaVadU1BUnBHZBtCodQraQn1X+OOn9IRqEJtGQVWQbvGXu/qBQN8e3jU3VIPgNJveKWgzi/cPe/8ZtowJFNQuDUHqHvTPKahSqYFQ0Bbq5wvzGFSt1EAo6NCgvp84GUFB7dIQiI9BbxofFBmqQXiaRfcUtJnF+39oerhaqAbhaZEEncBlwr6z+PUDXIcvY0LWPYxB+8KSU7hMOOAy031xzrN4tWKDEJacwmXCIddBRy1jQt5jtPz9J+5BI18m5Gfx49PCCDqFy4QUVJCWfQPwLB4VZwQF7WJ3pGZ8Hbv1vmG5BDXrnYLapSHItwc9DUGzt0lBLeMAUFC7NAQZj0FP5OtomdukoKg4CqqC9EL9TX0eEvmDFrigJidK+fcweZuUVlu8mzX89aQFFUYmQkFbmF88vf4jBc2Owbd9snbJY1BUnDgzDYNv+1BQILkFzX4gavBtHwoKxOCjzhCCJn3bJ2eHFBQVl5Qrx+LbPhQUh8WXRSb/FkhBcVDQToTf9snYIQVFxe3NlPNMyWQAKSgMC0Gl4SJsBjDfQFNQVFx6uIiEk6RL+Y/KKCgKK0GzbYqEy0zz8wfxrx7dvwBzpCGgoM2szFy8/5mCGmMnaKYTJeke9GN1BXTxO/HPcp2/ALOkITATVFhgNPJj0OqjpLn4+5IUFAMF1UrLNNYUFBWHKTAaCmqXhoCCqqXlGWwKioprmDnHeRIFtUtDYCmosIZlBQqaGwqqlzbxQ5g8GAuqv0UoqF0aAnNBtY9DKahdGgJrQYXLWKWPS8sx3BQUFQddxiqdgubGgaC6W8V0ADOM9zQEba9LQTXTKOjQsq2FxYICn7OjeqJkO4CTvoyWpaxUUPBzdiioFAraDPg5OxRUygQE7Xz/TN2Dop6zo7ZljAdwyh9EwIpqCIp+zg4FFRJe0J7zD9hZfOJjTNROlCioXdqwkkqCPr+ZzV/dQTqpwUkKqj7k1v2lFuyrKD4G/TirzuCRT8uloBKs+0stqCVoefr+/Bb8tFyVrWM+gMpjbt6fckHxW/xPs+qXuZWko+p1rovGYaj5AFLQrnp6gr7cVec1xzfiT2xwioJO+MswOep5+Cwetrh+JAWFVhtQzpegChvIfgApaEutjq+I7M0lmgRdBrm8diIFBdYaVMyboPATJQcDqDrqDvpTLeVMUEyEXhwFzV2KgmZI0xx2D/1JCg2t5E9Q15ucgmLKDDo/qmcVTYIuo5HhLE1x3F30N7rK8DoeBYWeKLkYQAoqruJQUFwMOEqeRkH3Kozb/VDQLGl6Ay9Nfr46+5cb6NclB1GMOPysFxBNgi6jmUNBW3j58WHxbrZcfIf7uuQgRurpV1DYYagPQfVGXhi8eL96xA7065L9jNbTraAe98VJad4EXe9BkV8470ey26GgmdK0hl6aOy/yH4MKdqB+BXV4vpWU5k3QHGlH2ejPiSkoMs2noMLHjUuQ7D6XrgXFbC0vgmoZ6qa/vmD8JWRjQUFhbgbwpAWV720oaK40Z4IC707YSyHfgboWFPPJPiADk6Y1+CLAdyfsJOlgjYJmS3MlKPjuhJ3Id59L74ICzpMoaCPouxO2kziGrgVF5PkRVGv3JAN8d8JWknafSwqaM82VoDnSknefS/eCpgd6GkANQz311xBHQdUDgGknKKhmhA9BU98kPA3giQkK2H/6FzQ50tUA+ts8immYz6opaM40f5tHLS3l06PDHMkk6DK6ma4G8HQEhX0xKoKgSb36GkCN64wO01C7z2UIQT19fkNBB6UAv1dKQbOmnYig0GNZySToMrqxzgbQ34VifBr4WhW0DgXVDtANhFy49CFozi+8phzUeBtAf99WwKaB/RQLmvMLr0nB/gYQi7P+cr5DdNbK+YXXpGBnAzhtQdG7z2X6HlT/C6+Jya4GEBShF5d2vUTjZ8viY9BcX3hNTRYuV701PMIfVAaK0ItLORsFXp3fjxVNappb+Yf/0my5oPNLlWPsyQqqs3dKOQbV2cPI1ge8VNXf47XKMfZEBdUa+QRBlfYwsvUBL7Vc3Fz8+vulyv0zvSiFTFPafS6TBFXawwhXCLpQxfPV2ez5jcIxtg+loGl6fsoF1dvDtK+Q5DDUxQDCM3ylGb1v9pRV28N0kF1Qlbu/5fooMFOa4u5zGeWz+IR4+wHUCVEJE21gzXs2RhNUkG8+gGop+Czh9qWgKfnWA6iXgs8an6b79l5XkEyCLjMqf/T7CQVVTFN+e1+VEE2CLqNbQXwdtD4pOle5jAbcTJaCar+9r2sIJkGX0a0gXaPqIS24NJ0YcNTYNP3d5zKgoKPfhaR15scf4yalqcSAo0amZfGTgpqkxRdU56tLjYUkk6DLjC0x+jgJWdxZjlV/Yx8JKyeeoOMP5M1q6+eYCZrLTwqqWVs/x6i/HKfvu1KCSdBldIv4FNRh0Ji0XHZ2l6Kgimn+ggan5Xt7r6tJJkGXGV9kzHmSU0EdHiwMTMvw6dFBOdEk6DK6ZSgoOC3vDpSCqhXOlJS7v6x2dtdzLOiIOl4FdXjNvz8t896zLimZBF1GwvDjIAqKS8t3eX6vpmgSdBkRFBQbMyjNwE8KqlQ2W1a2/izsXMYVdMSHchZV82Xl6i/z1aVdXdEk6DIy4guKCcsmqM0ONLCgA1/RFBSSZmNnd2Hfgg6tRUHt0hBQUIWaOdP8rRGWwIIOK+Z5AC0FfX4zm7/6TSAFhUJB5RkvH2fVnQlz3p1QRmhBh1TzpxQ2TZixeP/w/Dbz3QlFRBZ0UDV/SmHTpBk/zcqd6LKSFJGmBwWFV8wbJ414uavuS5HzDtkyQgs6pBwFtUtDEFzQ/nquB9BcUJX7n0KJLeiAeq4FBeT57i8dCgqulzvPd3/pBBe0v6DzAUwOlAZkfRhwAhQUWy57oPRCfeaHAYsRC+rkFUhBZYvlfhiwGKmgXl6B0QVNTkzcg2Z7GLAUqaBeXoEUVLhc7ocBS0ndg5q/AvsqUlC7NATiY1Avr0AKimRCgr6a2+iTiL6S3geQgnaTJGj1fZixy8AJLmhqpPv+EhGfJKk+pmUMFBTIdAQtj0GvfexBe2q6H0AK2knCW/zj2b9SUPNM//2lkXIM+nJ3fBJvI2hnUf8DSEG7iP5ZfG/RAAOYFBqgvyQoKK6USWiA/pKYgqCdVQMMIAXtYBqCdhyGBhhACtrBJATtqhthAFNSI/SXAgUF1bFKjdBfChMRtL1whAGkoO1QUEwZs9QI/aVAQTFlzGJD9JfAVARtJcQAUtBWKKhhGiI2RH8JUFDDNERsiP4SoKCGaYjcGP3JoaCGaYjcGP3JoaCGaYjgIP2JoaCGaYjgIP2JoaCGaYjgIP2JoaCGaYjgIP2JoaCGaYjkKP1JoaCGaYjkKP1JoaCGaYjkKP1JoaCGaYjkKP1JoaCGaYjoMP0JoaCGaYjoMP0JoaAt5L/FuSybgqLijBCukcEtziloExS0GYNbnFPQJihoMwa3OKegTVDQFvLf4pyCNkFBDdMQ4YH6E0FBO8n6NGAK2gAFNUxDhAfqTwQFNUxDhAfqTwQFNUxDhAfqTwQFNUxDpEfqTwIFbcbkMTv2WzzU+HWvrJPHcfciXaPFu+MHRKSkDYOCvkYqqJfHcfciXqP5xdPrP1LQ3EgF9fI47l5CDaAgPlR/AlL3oOaP4+4j1ABmFtTHkwK7ER+Denkcdx+hBBXkRzoJlAA7i7d6HHcfFLQZP89a7SbhLP7sn66OX4CxGjRPQ+TL18jLs1a7ER+Dfpw9X91O+Sw+QxoiP2GNnDxrtZuEs/iXHx94Fg8mq6DqaQgSz+IX33EPalsg0NcJRcjP4t+Ubw9znsWDySyobhoCfhZvmIYoEKy/0VBQwzREAekaTeC7FBRUOw1RQLhGU/guhVzQogHZ6g0v3FaTgjYyhe9ScA+qnYaokLgHjfxdCgqqnYaoIP+ok8egLqCgdmkIKKhhGqJCtP7GQkEN0xAlwvU3EgpqmIYoEa6/kVBQwzREjXj9jYOCGqYhasTrbxwU1DANUSNef+OgoIZpiBrx+hsHBTVMQ9SI1984KKhhGqJIwP5GQUEN0xBFAvY3CgpqmIYoErC/UVBQwzREkYD9jYKCGqYhigTsbxQU1DANUSRgf6OgoIZpiCoR+xsDBTVMQ1SJ2N8YKKhhGqJKxP7GQEEN0xBVIvY3BgpqmIYoE7K/EVBQwzREmZD9jYCCGqYhyoTsbwQU1DANUSZkfyOgoIZpiDox+xsOBTVMQ9SJ2d9wKKhhGqJOzP6GQ0EN0xB1YvY3HApqmIaoE7O/4VBQwzREoaD9DYaCGqYhCgXtbzBiQSdwC2nzNEShoP0NRiroFG4hbZ6GKBS0v8FIBZ3CLaTN0xCFgvY3mNQ9aORbSJunIQoF7W8w4mPQCdxC2jwNUShof4OBncUHfJSeeRqiUtT+hpKyB73kMageFLQm5Rh0fv5AQbWgoDVJZ/GL9z9TUCUoaI14D/qxOj1a/I5n8UpQ0JqEY9DqOlP5Lj9iGQvCDuDAUmH7Gwg/izdMQ5QK299AKKhhGqJU2P4GQkEN0xClwvY3EApqmIaoFbe/YVBQwzRErbj9DYOCGqYhasXtbxgU1DANUUu6RhP4qPqkBa1G7rEoLg6/jz0dQafwUfWpCzq/tP3FgKqgU/io+tQFfbw2fgscVEy6B53AR9WnLejNxa+/L//zneFvrjQFncJH1SctaDWCZ7PnN5a/GFAVNEcaAgpqmIYolrZGu0OYgL+IoKDGA8g96JKCmqYhigXubxAU1DANUU26RhO4M8xpC+phABUFncKdYU5aUBcDqCjoFO4Mc9KCuhjADHtQXqi3JvQADiiX8GUR80OYIVDQFlwMoKKgOdIQUFDDNES50P0NgIIapiHKhe5vABTUMA1RLnR/A6CghmmIcqH7GwAFNUxD1IvdXz8U1DANUS92f/1QUMM0RL3Y/fVDQQ3TEPVi99cPBTVMQ9SL3V8/FNQwDVEvdn/9UFDDNES92P31Q0EN0xD1YvfXDwU1TEPUi91fPxTUMA1RL3Z//VBQwzREweD99SIW1MNvdoYQfAApqGiSk9/sDCH4AFJQ0SQnv9kZQvABpKCiSV5+szOA4ANIQUWTlk5+szOA4ANIQUWTmuaOd/Mp8zREweD99cLLTIZpiIrR++uDghqmISpG768P8Vn8Tf2WHvkOveZpiIrR++tDvAddvJs1/DVUg+ZpiIrR++tD/hY/P35Ey4BlDIg+gBRUMgm6jC7hB7CnZPj+eqCghmmIkuH764GCGqYhSobvrwcKapiGKBm+vx4oqGEaomT4/nqgoIZpiJLh++uBghqmIUqG768HCmqYhigZvr8eKKhhGqJm/P66oaCGaYia8fvrhoIapiFqxu+vGwpqmIaoGb+/biioYRqiZvz+uqGghmmImvH764aCGqYhasbvrxsKapiGqBm/v24oqGEaomb8/rqhoIZpiJrx++uGghqmIYpOoL9OKKhhGqLoBPrrhIIapiGKStdoArfPpKDaaYiiwjWawu0zKah2GqKocI2mcPtMCqqdhiiauAeNfPtMCqqdhigqXaMJ3D6TgmqnIapOob8uKKhhGqJq2hrtjkH37+9aNJBUJgEKapiGqDqF/rqgoIZpiKpT6K8LCmqYhqjKC/WoOCOmICh6lJa8UO8HCtoIL9R7gYI2wgv1XqCgzfBCvRMoKKiQERTUMA1RdhL9dUBBDdMQZSfRXwcUtAVf1wnb61JQVJwR07hOSEHHTVp628O0M43rhBR03CR3e5h2pnGdkIKOm9Swh5na47h9XSekoOMmudvDtHPCA2iehkB8DOprD9NO2hpN9x0iRxoCnsUbpiE44f4oqHYaghPu77QFnfhltCxpCChoM1O/jJYlDQEFbcbZhfp2KCgqzohpXKhvh4Ki4oyYxoX6digoKs6IEx5A8zQEFNQwDcEJ90dBtdMQnHB/FFQ7DcEJ9ycS1B/iTcP+XNCxsvI2E6cnByjvCNifcsCw/iioWnn2l1hgxFwq9TmAiQXSCNIfBVUrz/4SC4yYS6U+BzCxQBpB+qOgauXZX2KBEXMRYgQFJa6hoMQ1FJS4hoIS11BQ4hoKSlxDQYlrKChxjUDQeVGsfgy5vC+K84eGGTY/493O2DZDc8DLXVFcdgTspretQBrsz1N/4wVdvJvVv9N9+ThrnuGmrrqdsW2GloDHy/XvgVsCttPbViAN9ueqv/GCPn/7VCc3r/3y5cef6xfYdsbWGZoDKh6vOwK209uXT4D9uepvvKDzcvd8X70A5l9drXfVR6zfAbYzts7QFrCeoS+gffkU2J+r/hIEXf7f0/Kxqf7QBtsD3s06A9bTW5dPgv256i/hLb5itat+Vb/7LeLgZkhNAc9vZq8rNUxvXYEk2J+r/hJOkqoXSNcrsPUge/8l2hCwXaglYPu31hVIgv256k96malax/uiaPS/mlb923mZoj3gvvod6nV7wG562wqkwf489ccL9cQ1FJS4hoIS11BQ4hoKSlxDQYlrKChxDQUlrqGgxDUUlLiGghLXUFDiGgpKXENBiWsoKHENBSWuoaDENVaC3l88vdwpfF3cC+wPhNke9P76Hv+TWkewPwxmgr7cXTxZ1c4B+8NgJujz1dms/N+3VvW1YX8YrAR9ubudXzx9+ce/NaqvDfsDYSToy11114nL5WKiA8j+UBhfZprqAG5gf6lQUFXYXyq8UE9cQ0GJaygocQ0FJa6hoMQ1FJS4hoIS11BQ4hoKSlxDQYlrKChxDQUlrqGgxDUUlLiGghLXUFDimv8Hi0FAgQKdhc8AAAAASUVORK5CYII=" /><!-- --></p>
 <p>Numerical integration yields an expected sample size of</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">evaluate</span>(ess, opt_res<span class="op">$</span>design)</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#&gt; [1] 39.85638</span></span></code></pre></div>
-<p>which is way below the single-stage 51. We can check this results against simulated values</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df_sim &lt;-<span class="st"> </span><span class="kw">simulate</span>(</span>
-<span id="cb13-2"><a href="#cb13-2"></a>  opt_res<span class="op">$</span>design, </span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="dt">nsim =</span> <span class="dv">10</span><span class="op">^</span><span class="dv">6</span>, </span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="dt">dist =</span> datadist, </span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="dt">theta =</span> <span class="fl">.4</span>, </span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="dt">seed =</span> <span class="dv">42</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>)</span>
-<span id="cb13-8"><a href="#cb13-8"></a></span>
-<span id="cb13-9"><a href="#cb13-9"></a>n &lt;-<span class="st"> </span>df_sim<span class="op">$</span>n1 <span class="op">+</span><span class="st"> </span>df_sim<span class="op">$</span>n2</span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="kw">mean</span>(n)</span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">#&gt; [1] 39.83997</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="kw">sd</span>(n) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(n))</span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co">#&gt; [1] 0.01372661</span></span></code></pre></div>
-<p>The values from simulation and numerical integration are almost identical and the constraints are also met almost perfectly:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">evaluate</span>(toer, opt_res<span class="op">$</span>design)</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#&gt; [1] 0.02500571</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">evaluate</span>(power, opt_res<span class="op">$</span>design)</span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#&gt; [1] 0.7985309</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">evaluate</span>(ess, opt_res<span class="sc">$</span>design)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; [1] 39.85632</span></span></code></pre></div>
+<p>which is way below the single-stage 51. We can check this results
+against simulated values</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>df_sim <span class="ot">&lt;-</span> <span class="fu">simulate</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  opt_res<span class="sc">$</span>design, </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="at">nsim =</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="at">dist =</span> datadist, </span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="at">theta =</span> .<span class="dv">4</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">42</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>)</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>n <span class="ot">&lt;-</span> df_sim<span class="sc">$</span>n1 <span class="sc">+</span> df_sim<span class="sc">$</span>n2</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="fu">mean</span>(n)</span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="co">#&gt; [1] 39.83996</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="fu">sd</span>(n) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(n))</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="co">#&gt; [1] 0.01372661</span></span></code></pre></div>
+<p>The values from simulation and numerical integration are almost
+identical and the constraints are also met almost perfectly:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">evaluate</span>(toer, opt_res<span class="sc">$</span>design)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.02500571</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="fu">evaluate</span>(power, opt_res<span class="sc">$</span>design)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.7985278</span></span></code></pre></div>
 </div>
 <div id="variations" class="section level2">
 <h2>Variations</h2>
-<p>The purpose of <strong>adoptr</strong> is to provide a high-level interface for exploring and comparing different designs and to experiment with different combinations of objective functions and constraints. In particular, <strong>adoptr</strong> supports:</p>
+<p>The purpose of <strong>adoptr</strong> is to provide a high-level
+interface for exploring and comparing different designs and to
+experiment with different combinations of objective functions and
+constraints. In particular, <strong>adoptr</strong> supports:</p>
 <ul>
-<li><p>Important predefined scores as (conditional) power or sample size functions as well as a framework for constraints on scores (cf. <a href="https://kkmann.github.io/adoptr/articles/conditional-scores.html">conditional scores</a>).</p></li>
-<li><p>Arbitrary continuous or discrete <a href="https://kkmann.github.io/adoptr/articles/working-with-priors.html">prior distributions</a> for the single location parameter <span class="math inline">\(\theta\)</span> of the test statistic.</p></li>
-<li><p>Support for simple arithmetic operations on scores to quickly define weighted sums etc. (cf. <a href="https://kkmann.github.io/adoptr/articles/composite-scores.html">composite scores</a>).</p></li>
-<li><p>Relatively flexible framework for <a href="https://kkmann.github.io/adoptr/articles/defining-new-scores.html">defining new scores</a>.</p></li>
+<li><p>Important predefined scores as (conditional) power or sample size
+functions as well as a framework for constraints on scores (cf. <a href="https://optad.github.io/adoptr/articles/conditional-scores.html">conditional
+scores</a>).</p></li>
+<li><p>Arbitrary continuous or discrete <a href="https://optad.github.io/adoptr/articles/working-with-priors.html">prior
+distributions</a> for the single location parameter <span class="math inline">\(\theta\)</span> of the test statistic.</p></li>
+<li><p>Support for simple arithmetic operations on scores to quickly
+define weighted sums etc. (cf. <a href="https://optad.github.io/adoptr/articles/composite-scores.html">composite
+scores</a>).</p></li>
+<li><p>Relatively flexible framework for <a href="https://optad.github.io/adoptr/articles/defining-new-scores.html">defining
+new scores</a>.</p></li>
 </ul>
 </div>
 </div>

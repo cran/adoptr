@@ -2,13 +2,14 @@
 % Please edit documentation in R/adoptr.R
 \docType{package}
 \name{adoptr}
+\alias{adoptr-package}
 \alias{adoptr}
 \title{Adaptive Optimal Two-Stage Designs}
 \description{
 The \pkg{adoptr} package provides functionality to explore custom optimal
 two-stage designs for one- or two-arm superiority tests.
 For more details on the theoretical background see
-<doi:10.1002/sim.8291> and <doi:10.18637/jss.v098.i09>.
+\url{doi:10.1002/sim.8291} and \url{doi:10.18637/jss.v098.i09}.
 \pkg{adoptr} makes heavy use of the S4 class system.
 A good place to start learning about it can be found
 \href{http://adv-r.had.co.nz/OO-essentials.html}{here}.
@@ -17,11 +18,11 @@ A good place to start learning about it can be found
 
 
 For a sample workflow and a quick demo of the capabilities, see
-\href{https://kkmann.github.io/adoptr/articles/adoptr.html}{here}.
+\href{https://optad.github.io/adoptr/articles/adoptr.html}{here}.
 
 A more detailed description of the background and the usage of \pkg{adoptr}
-can be found \href{https://kkmann.github.io/adoptr/articles/adoptr_jss.html}{here}
-or here <doi:10.18637/jss.v098.i09> .
+can be found \href{https://optad.github.io/adoptr/articles/adoptr_jss.html}{here}
+or here \url{doi:10.18637/jss.v098.i09} .
 
 A variety of examples is presented in the validation report hosted
 \href{https://kkmann.github.io/adoptr-validation-report/}{here}.
@@ -55,6 +56,26 @@ See \code{\link{Scores}} for information on the basic system of representing
 scores.
 Available scores are \code{\link{ConditionalPower}},
 \code{\link{ConditionalSampleSize}}, \code{\link{Power}}, and
-\code{\link{ExpectedSampleSize}}..
+\code{\link{ExpectedSampleSize}}.
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/optad/adoptr}
+  \item \url{https://optad.github.io/adoptr/}
+  \item Report bugs at \url{https://github.com/optad/adoptr/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Maximilian Pilz \email{maximilian.pilz@itwm.fraunhofer.de} (\href{https://orcid.org/0000-0002-9685-1613}{ORCID})
+
+Authors:
+\itemize{
+  \item Kevin Kunzmann \email{kevin.kunzmann@boehringer-ingelheim.com} (\href{https://orcid.org/0000-0002-1140-7143}{ORCID}) [copyright holder]
+  \item Jan Meis \email{meis@imbi.uni-heidelberg.de} (\href{https://orcid.org/0000-0001-5407-7220}{ORCID})
+  \item Nico Bruder \email{bruder@imbi.uni-heidelberg.de}
+}
+
+}

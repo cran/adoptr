@@ -22,7 +22,7 @@
 #'   \code{\link{predictive_cdf}}, \code{\link{posterior}}
 #'
 #' @details For an example on working with priors, see
-#'    \href{https://kkmann.github.io/adoptr/articles/working-with-priors.html}{here}.
+#'    \href{https://optad.github.io/adoptr/articles/working-with-priors.html}{here}.
 #'
 #' @aliases Prior
 #' @exportClass Prior

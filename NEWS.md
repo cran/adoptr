@@ -1,3 +1,9 @@
+# adoptr 1.0.1
+
+* updated maintainer
+* updated roxygen version
+* fulfill current CRAN requirements
+
 # adoptr 1.0.0
 
 * added references to article in journal of statistical software
