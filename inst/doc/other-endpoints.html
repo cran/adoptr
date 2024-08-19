@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Designs for non-normal Endpoints with approximately normal test statistics</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Designs for non-normal Endpoints with
+approximately normal test statistics</h1>
+
+
+
+<p>Currently, <code>adoptr</code> supports the optimization of adaptive
+two-stage designs with either normally or t-distributed test statistics.
+More specifically, it is required that the first stage test statistic,
+and the distribution of the second stage test-statistic conditional on
+the first-stage test statistic, is either normal or t-distributed.</p>
+<p>When individual observations are normally distributed, stage-wise Z-
+or T-test statistics fulfill these criteria. In practice, however, there
+are many situations where one cannot reasonably assume that individual
+observations are sampled from a normal distribution. It is common for
+trials to be conducted for binary or time-to-event endpoints, e.g. if
+one is interested in investigating the impact of a drug on mortality.
+One way to deal with this situation is by transforming the data to a
+test-statistic which is approximately normal. In the following, we will
+explain how to do so for binary and for time-to-event endpoints.</p>
+<p>We will be using the following notation:</p>
+<ul>
+<li><span class="math inline">\(X_i^T\)</span> will denote an
+observation of recruit <span class="math inline">\(i\)</span> in the
+treatment arm</li>
+<li><span class="math inline">\(X_i^C\)</span> will denote the
+observation of recruit <span class="math inline">\(i\)</span> in the
+control arm</li>
+<li><span class="math inline">\(n\)</span> will denote the group-wise
+sample size.</li>
+</ul>
+<div id="binary-endpoints" class="section level1">
+<h1>Binary endpoints</h1>
+<p>Binary endpoints are endpoints where individual observations follow a
+Bernoulli distribution, i.e. <span class="math inline">\(X_i^T \sim
+Bin(1,p_T)\)</span> and <span class="math inline">\(X_i^C\sim
+Bin(1,p_C)\)</span>. Our goal is to compare the probability <span class="math inline">\(p_T\)</span> of an event in the treatment group
+with a fixed value (single-arm trial) or with the probability <span class="math inline">\(p_C\)</span> of an event in the control group
+(two-armed trial). Thus, assuming that larger probabilities are
+favorable, we have</p>
+<p><span class="math display">\[
+H_0: p_T \leq p_C\quad \text{vs.} \quad H_1:p_T &gt; p_C.
+\]</span></p>
+<p>To test this hypothesis, one could use the test statistic <span class="math display">\[
+U=\sqrt{\frac{n}{2}}\frac{\hat{p}_T-\hat{p}_C}{\sqrt{\hat{p}_0(1-\hat{p}_0)}},
+\]</span></p>
+<p>where <span class="math inline">\(\hat{p}_T=\frac{1}{n}\sum_i^{n}X_i^T\)</span> and
+<span class="math inline">\(\hat{p}_C=\frac{1}{n}\sum_i^{n}X_i^C\)</span> are
+the maximum likelihood estimators of <span class="math inline">\(p_T\)</span> and <span class="math inline">\(p_C\)</span> and where <span class="math inline">\(\hat{p}_0=\frac{\frac{1}{n}\sum_i^{n}X_i^T+\frac{1}{n}\sum_i^{n}X_i^C}{2}\)</span>.</p>
+<p>The outcome of <span class="math inline">\(U\)</span> is then
+compared to <span class="math inline">\(c_f\)</span> and <span class="math inline">\(c_e\)</span>, the first stage boundaries. If <span class="math inline">\(U\in [c_f,c_e]\)</span>, we continue the trial and
+compute a new value for <span class="math inline">\(U_2\)</span> in the
+second stage, where we reject the null if <span class="math inline">\(U_2&gt;c_2\)</span>.</p>
+<p>It is a well-known fact that this test statistic is asymptotically
+normal, and we will give a proof of this in the next section.</p>
+<div id="asymptotic-distribution-of-the-test-statistic" class="section level2">
+<h2>Asymptotic distribution of the test statistic</h2>
+<p>We begin with the difference <span class="math inline">\(\hat{p}_T-\hat{p}_C\)</span>. Using the de
+Moivre-Laplace theorem, we get that <span class="math display">\[
+\frac{n\hat{p}_T-np_T}{\sqrt{n}} \overset{d}{\to}
+\mathcal{N}(0,p_T(1-p_T)).
+\]</span> After defining <span class="math inline">\(\sigma_A^2=p_T(1-p_T)+p_C(1-p_C)\)</span>, we
+obtain <span class="math display">\[
+\frac{n\hat{p}_T-np_T}{\sqrt{n}}-\frac{n\hat{p}_C-np_C}{\sqrt{n}}=\sqrt{n}(\hat{p}_T-\hat{p}_C-(p_T-p_C))\overset{d}{\to}\mathcal{N}(0,\sigma_A^2),
+\]</span> so it follows <span class="math display">\[
+\sqrt{n}(\hat{p}_T-\hat{p}_C)\overset{d}{\to}\mathcal{N}(\sqrt{n}(p_T-p_c),\sigma_A^2).
+\]</span> Applying the continuous mapping theorem, it results that <span class="math inline">\(\hat{\sigma}_0:=\sqrt{2\hat{p}_0(1-\hat{p}_0)}
+\overset{P}{\to}\sqrt{2p_0(1-p_0)}:=\sigma_0\)</span>, so by Slutzky’s
+theorem, we get <span class="math display">\[
+\frac{\sqrt{n}(\hat{p}_T-\hat{p}_C)}{\sigma_0}=\sqrt{\frac{n}{2}}\frac{\hat{p}_T-\hat{p}_C}{\sqrt{\hat{p}_0(1-\hat{p}_0)}}\overset{d}{\to}\mathcal{N}\left(\sqrt{n}\frac{p_T-p_C}{\sigma_0},\frac{\sigma_A^2}{\sigma_0^2}\right).
+\]</span> Hence, for sufficiently large <span class="math inline">\(n\)</span>, <span class="math inline">\(U\)</span>
+is approximately normal.</p>
+<p>Note that under the null hypothesis, <span class="math inline">\(\sigma_A^2=\sigma_0^2\)</span> and <span class="math inline">\(p_T=p_C\)</span>. Thus, approximately, <span class="math inline">\(U\sim \mathcal{N}(0,1)\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+</div>
+<div id="adoptr-and-binomial-endpoints" class="section level2">
+<h2><code>adoptr</code> and binomial endpoints</h2>
+<div id="implementation-details" class="section level3">
+<h3>Implementation details</h3>
+<p>Currently, <code>adoptr</code> only supports the specification of a
+single fixed reference value fo <span class="math inline">\(p_C\)</span>, while general prior distributions
+are supported for the effect size <span class="math inline">\(\theta\)</span>.</p>
+<p>This is a limitation, as uncertainty about the control group rate
+cannot be represented in this framework. However, in a trial comparing a
+new treatment to an existing one, it is usually reasonable to assume
+that some information about the event rate in the control group is
+available beforehand.</p>
+</div>
+<div id="example" class="section level3">
+<h3>Example</h3>
+<p>Assume we want to plan a two-armed trial with an assumed rate of
+events in the control group of <span class="math inline">\(p_C=0.3\)</span>. These parameters are encoded in
+the <code>DataDistribution</code> object.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>datadist <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(<span class="fl">0.3</span>, <span class="at">two_armed =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Let us furthermore postulate a normal prior distribution for <span class="math inline">\(\theta\)</span> with expectation <span class="math inline">\(\mu=0.2\)</span> and standard deviation <span class="math inline">\(\sigma=0.2\)</span>, which was truncated to the
+interval <span class="math inline">\((-.29,0.69)\)</span>. It is
+necessary to use a truncation to ensure that <span class="math inline">\(p_T \in (0,1)\)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>H_0        <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(.<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>prior      <span class="ot">&lt;-</span> <span class="fu">ContinuousPrior</span>(<span class="cf">function</span>(x) <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">pnorm</span>(<span class="fl">0.69</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>) <span class="sc">-</span> </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                                                   <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">0.29</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>)) <span class="sc">*</span> </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>                                  <span class="fu">dnorm</span>(x, <span class="fl">0.2</span>, <span class="fl">0.2</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>                              <span class="at">support =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.29</span>,<span class="fl">0.69</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>                              <span class="at">tighten_support =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>We require a maximal type one error of <span class="math inline">\(\alpha\leq 0.025\)</span> and a minimum expected
+power of <span class="math inline">\(\mathbb{E}[1-\beta]\geq
+0.8\)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>alpha      <span class="ot">&lt;-</span> <span class="fl">0.025</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>min_epower <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>toer_cnstr <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist, H_0) <span class="sc">&lt;=</span> alpha</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>epow_cnstr <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist, <span class="fu">condition</span>(prior, <span class="fu">c</span>(<span class="fl">0.0</span>,<span class="fl">0.69</span>))) <span class="sc">&gt;=</span> min_epower</span></code></pre></div>
+<p>Next, we need to choose an objective function, which will be the
+expected sample size under the chosen prior distribution for <span class="math inline">\(\theta\)</span> in this example. After having
+chosen a starting point for the optimization procedure, we use the
+<code>minimize</code> function to determine the optimal design
+parameters.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>ess <span class="ot">&lt;-</span> <span class="fu">ExpectedSampleSize</span>(datadist,prior)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>init <span class="ot">&lt;-</span> <span class="fu">get_initial_design</span>(<span class="fl">0.2</span>,<span class="fl">0.025</span>,<span class="fl">0.2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>opt_design <span class="ot">&lt;-</span> <span class="fu">minimize</span>(ess,<span class="fu">subject_to</span>(toer_cnstr,epow_cnstr), </span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>                       <span class="at">initial_design =</span> init, <span class="at">check_constraints =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">plot</span>(opt_design<span class="sc">$</span>design)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+</div>
+<div id="time-to-event-endpoints" class="section level1">
+<h1>Time-to-event endpoints</h1>
+<p>Time-to-event endpoints are another common type of endpoint used in
+clinical trials. Time-to-event data is two-dimensional and consists of
+an indicator denoting the occurrence of an event or censoring, and a
+time of the event or censoring.</p>
+<p>A common effect measure for time-to-event endpoints is the so called
+hazard-ratio, which is the ratio of hazard functions between two groups
+or the ratio of the hazard of one group and a postulated baseline
+hazard.</p>
+<p>In the following, the hazard ratio will be denoted by <span class="math inline">\(\theta :=
+\frac{\lambda_C(t)}{\lambda_T(t)}\)</span>, and we will assume that
+<span class="math inline">\(\theta\)</span> is constant over time.
+Assuming that less hazard is favorable, the resulting hypotheses to be
+tested are</p>
+<p><span class="math display">\[
+H_0: \theta\leq 1 \quad \text{vs.} \quad H_1: \theta &gt;1.
+\]</span></p>
+<p>Let <span class="math inline">\(1,\dots,J\)</span> be the distinct
+times of observed events in either group and let <span class="math inline">\(n_{T,j}, n_{C,j}\)</span> be the number of
+subjects, who neither had an event nor have been censored. Additionally,
+let <span class="math inline">\(O_{T,j},O_{C,j}\)</span> denote the
+observed number of events at time <span class="math inline">\(j\)</span>. In the following we assume that there
+are no ties, so <span class="math inline">\(O_{T,j},O_{C,j}\in
+\{0,1\}\)</span>. Define <span class="math inline">\(n_j:=n_{T,j}+n_{C,j}\)</span> and <span class="math inline">\(O_j:= O_{T,j}+O_{C,j}\)</span>. Under the null,
+the hazard functions of the groups are equal. Thus, for <span class="math inline">\(i \in \{T,C\}\)</span>, <span class="math inline">\(O_{i,j}\)</span> can be regarded as the number of
+events in a draw of size <span class="math inline">\(n_{i,j}\)</span>,
+where the population has size <span class="math inline">\(n_j\)</span>.
+Therefore, <span class="math inline">\(O_{i,j}\)</span> follows a
+hypergeometric distribution, i.e. <span class="math inline">\(O_{i,j}\sim h(n_j,O_j,n_{i,j})\)</span>. This
+distribution has an expected value of <span class="math inline">\(E_{i,j}:=\mathbb{E}[O_{i,j}]=n_{i,j}\frac{O_j}{n_j}\)</span>
+and variance <span class="math inline">\(V_{i,j}:=\text{Var}(O_{i,j})=E_{i,j}\left(\frac{n_j-O_j}{n_j}\right)\left(\frac{n_j-n_{i,j}}{n_j-1}\right)\)</span>.
+Using these definitions, we can define the so-called log-rank test
+statistic as</p>
+<p><span class="math display">\[
+L=L_T:=\frac{\sum_{j=1}^J O_{T,j}-E_{T,j}}{\sqrt{\sum_{j=1}^J V_{T,j}}}.
+\]</span> Note that it does not matter whether we consider <span class="math inline">\(L_T\)</span> or the analogously defined statistic
+<span class="math inline">\(L_C\)</span>, both of them yield the same
+results, so we abbreviate <span class="math inline">\(L_T\)</span> to
+<span class="math inline">\(L\)</span>. By the central limit theorem, it
+is easy to see that <span class="math inline">\(L \overset{d}{\to}
+\mathcal{N}(0,1)\)</span>. Under the alternative, it can be shown that,
+approximately, <span class="math inline">\(L \sim
+\mathcal{N}(\text{log}(\theta)\frac{1}{2}\sqrt{J},1)\)</span>. If <span class="math inline">\(\psi\)</span> is the average probability of an
+event per recruit in both arms (also known as the event rate), <span class="math inline">\(J\)</span> can be replaced by <span class="math inline">\(2 \cdot n \cdot \psi\)</span> (where <span class="math inline">\(n\)</span> denotes, like in the previous sections,
+the number of recruits per group). Thus, by by postulating an event
+probability, we can calculate the number of recruits per groups that
+would be required to achieve a specific number of events, and by
+extensions, a specific power. In <code>adoptr</code>, the parameter
+<span class="math inline">\(\psi\)</span> needs to be pre-specified in
+order to obtain a one-parametric distribution (the other parameter being
+<span class="math inline">\(\theta\)</span>), and <span class="math inline">\(\psi\)</span> is assumed to be fixed over time.
+This is similar to the case of binary endpoints, where the response rate
+in the control group <span class="math inline">\(p_C\)</span> had to be
+a constant value.</p>
+<div id="survival-analysis-and-adaptive-designs" class="section level2">
+<h2>Survival analysis and adaptive designs</h2>
+<div id="notation" class="section level3">
+<h3>Notation</h3>
+<p>We expand the previous notation by an index <span class="math inline">\(k\in \{1,2\}\)</span> denoting the current stage.
+We observe <span class="math inline">\(d_1\)</span> events until the
+interim analysis at times <span class="math inline">\(\{1,\dots,J_1\}\)</span>, and we observe <span class="math inline">\(d_2\)</span> events in total until the final
+analysis at times <span class="math inline">\(\{1,\dots,J_2\}\)</span>.
+We stress that, in this notation, <span class="math inline">\(d_2\)</span> denotes the cumulative number of
+events in both stages. Furthermore, let <span class="math inline">\(O_{i,j,k}\)</span> be the number of observed
+events in arm <span class="math inline">\(i\in \{T,C\}\)</span> at time
+<span class="math inline">\(j \in \{1,\dots,J_k\}\)</span> in stage
+<span class="math inline">\(k \in \{1,2\}\)</span>. Like in the previous
+section, let <span class="math inline">\(E_{i,j,k}=
+\mathbb{E}[O_{i,j,k}]=n_{i,j,k}\frac{O_{j,k}}{n_{j,k}}\)</span>, where
+<span class="math inline">\(n_{i,j,k}\)</span> is the number of patients
+that have not had an event until the end of stage <span class="math inline">\(k\)</span>, and let <span class="math inline">\(O_{j,k}=O_{T,j,k}+O_{C,j,k}\)</span> and <span class="math inline">\(n_{j,k}=n_{T,j,k}+n_{C,j,k}\)</span>. Likewise, we
+can define <span class="math inline">\(V_{i,j,k}\)</span> analogously to
+the previous section. The cumulative log-rank test statistic up to stage
+<span class="math inline">\(k \in \{1, 2\}\)</span> can then be defined
+as <span class="math display">\[
+L_k=\frac{\sum_{j=1}^{J_k} O_{T,j,k}-E_{T,j,k}}{\sqrt{\sum_{j=1}^{J_k}
+V_{T,j,k}}}.
+\]</span></p>
+</div>
+<div id="dependency-issues-and-solutions" class="section level3">
+<h3>Dependency issues and solutions</h3>
+<p>For normal distributed endpoints, the stage-wise test statistics come
+from independent cohorts, which makes the calculation of their joint
+distributions straightforward.</p>
+<p>In survival analysis, it is possible to have patients that have been
+recruited during the first stage, but have not had an event at the point
+of the interim analysis. Those provide information for both stages: in
+the first stage, we know that they survived, and in the second stage,
+they might die or even survive until the end of the trial. This makes
+the construction of a pair of suitable test statistics more
+challenging.</p>
+<p>In the following, we will present two methods to avoid these
+issues.</p>
+<div id="solution-1-independent-increments" class="section level4">
+<h4>Solution 1: Independent increments</h4>
+<p>It can be shown that the statistic <span class="math display">\[
+Z_2:= \frac{\sqrt{d_2}L_2-\sqrt{d_1}L_1}{\sqrt{d_2-d_1}}
+\]</span> is approximately distributed according to <span class="math inline">\(\mathcal{N}(\text{log}(\theta)\frac{1}{2}\sqrt{d_2-d_1},1)\)</span>,
+and that <span class="math inline">\(L_1\)</span> and <span class="math inline">\(Z_2\)</span> are approximately independent.</p>
+<p>The recruitment and testing procedure is now as follows: During the
+accrual time, recruit approximately <span class="math inline">\(\frac{d_1}{2\psi}\)</span> patients per group and
+conduct the interim analysis after having observed <span class="math inline">\(d_1\)</span> events overall.</p>
+<p>Assume, <span class="math inline">\(q\)</span> patients have not had
+an event until the interim analysis. These patients are censored for the
+computation of <span class="math inline">\(L_1\)</span>. <span class="math inline">\(L_1\)</span> is then compared to the futility and
+efficacy boundaries <span class="math inline">\(c_f\)</span> and <span class="math inline">\(c_e\)</span>, and recruitment is stopped if <span class="math inline">\(L_1 &lt; c_f\)</span> or <span class="math inline">\(L_1 &gt; c_e\)</span>. If <span class="math inline">\(c_f \leq L_1 \leq c_e\)</span>, recruitment of
+patients for the second stage will continue.</p>
+<p>The number of patients to be recruited in the second stage is
+calculated so that <span class="math inline">\(d_2(L_1)\)</span> events
+are expected to be observed in the second stage. Similarly to the normal
+case, the required number of events is a function of the first-stage
+test statistic. The observation of these <span class="math inline">\(d_2(L_1)\)</span> events will trigger the conduct
+of the final analysis, where <span class="math inline">\(Z_2\)</span> is
+compared to <span class="math inline">\(c_2(L_1)\)</span>.</p>
+</div>
+<div id="solution-2-left-truncation-at-the-second-stage" class="section level4">
+<h4>Solution 2: Left truncation at the second stage</h4>
+<p>Another approach uses left truncation and right censoring. In the
+following, <span class="math inline">\(R_i\)</span> stands for the
+calendar time of entry for individual <span class="math inline">\(i\)</span>. Furthermore, let <span class="math inline">\(T_i\)</span> be their time from entry to the event
+and <span class="math inline">\(C_i\)</span> their time from entry to
+censoring. Assume that these values are independent and let <span class="math inline">\(r_i,t_i,c_i\)</span> be realizations of <span class="math inline">\(R_i,T_i\)</span> and <span class="math inline">\(C_i\)</span>. Additionally, we denote the calendar
+time of the interim analysis by <span class="math inline">\(t_{Int}\)</span> and the calender time of the
+final analysis by <span class="math inline">\(t_{Fin}\)</span>.</p>
+<p>Let individual <span class="math inline">\(i\)</span> be recruited
+before the interim analysis. Define <span class="math inline">\(y_{i,1}:=\min \{t_i,c_i,t_{Int}\}\)</span>,
+i.e. <span class="math inline">\(y_{i,1}\)</span> can be interpreted as
+the minimum time until “something” happens to individual <span class="math inline">\(i\)</span> in the first stage (either the interim
+analysis is conducted, <span class="math inline">\(i\)</span> had an
+event or they were censored). The risk interval for the first-stage test
+statistic is now defined to be <span class="math inline">\((0,y_{i,1})\)</span>, which means that individual
+<span class="math inline">\(i\)</span> belongs to the risk set at the
+event time <span class="math inline">\(t_j\)</span> if <span class="math inline">\(\min \{c_i,t_{Int}-r_i\}\geq x_j\)</span>.</p>
+<p>If <span class="math inline">\(i\)</span> has not had an event yet in
+the first stage, was not lost to follow-up yet in the first stage, or if
+they were recruited in the second stage, we define <span class="math inline">\(y_{i,2}:=\min\{t_i,c_i,t_{Fin}\}\)</span>. As
+before, <span class="math inline">\(y_{i,2}\)</span> can be interpreted
+as the minimum time until something happens to individual <span class="math inline">\(i\)</span> in the second stage: Either the final
+analysis is conducted, <span class="math inline">\(i\)</span> had an
+event or was censored. The risk interval for an individual <span class="math inline">\(i\)</span> for the second stage test-statistic is
+then defined as <span class="math inline">\((\max(t_{Int}-r_i,
+0),y_{i,2})\)</span>. This definition takes into account that that a
+patient <span class="math inline">\(j\)</span> who was recruited in the
+first stage, but had no event until the interim analysis, has already
+provided the information of “no event” in the time span <span class="math inline">\((0, t_{Int}-r_i)\)</span> for the interim
+analysis. To avoid double-counting in the second analysis, we say that
+this patient is not in the risk set until this time span is over.</p>
+<p>Using this idea, one can conduct the analyses of the trial according
+to the following instructions: For the interim analysis, the procedure
+is the same as for the independent increment solution, i.e. <span class="math inline">\(L_1\)</span> is computed in the usual way and
+compared to the futility and efficacy boundaries <span class="math inline">\(c_f\)</span> and <span class="math inline">\(c_e\)</span>. If <span class="math inline">\(L_1
+\in [c_e,c_f]\)</span> (i.e. the trial is not stopped for early efficacy
+or futility), we continue the observation and recruit new patients, such
+that <span class="math inline">\(d_2(L_1)\)</span> events are expected
+to be observed in the second stage.</p>
+<p>The second-stage test statistic is where the two methods differ.
+Here, the idea is to construct a log-rank test statistic <span class="math inline">\(L_{Trunc}\)</span> comprised of the data of the
+patients who were recruited after the interim analysis, who contribute
+to the test statistic in the usual way, and the patients recruited
+before the interim analysis who have not had an event yet, who
+contribute as left (and possibly right) truncated datapoints. In theory,
+this is can be achieved by appropriately adjusting <span class="math inline">\(n_j\)</span> for the respective event timings
+<span class="math inline">\(j\)</span> in the definition of the log-rank
+statistic, and in practice, the <code>survival::coxph</code> method can
+handle datasets of the aforementioned structure.</p>
+</div>
+<div id="example-1" class="section level4">
+<h4>Example</h4>
+<p>In <code>adoptr</code>, trial designs to investigate time-to-event
+endpoints can be represented in objects of the class
+<code>TwoStageDesignSurvival</code>. These designs consist of slots for
+the first stage efficacy and futility boundaries <code>cf</code> and
+<code>ce</code>, a slot for the required number of events in the first
+stage <code>n1</code>, slots for the spline interpolation points for the
+<code>n2</code> and <code>c2</code> functions, and a postulated event
+rate <span class="math inline">\(\psi\)</span>.</p>
+<p>Two things are important to note here: First, the functions
+<code>n1</code> and <code>n2</code> will return the number of required
+events, not the number of recruits that would be required to achieve
+this number of events in expectation. Information on the latter is
+instead provided in the <code>summary</code> output of a design. Second,
+for one-armed trials, <code>n1</code> and <code>n2</code> are the
+overall number of required events, while for two-armed trials,
+<code>n1</code> and <code>n2</code> return half of the overall number of
+required events. This is analogous to the case with normally distributed
+outcomes, where <code>n1</code> and <code>n2</code> return the
+group-wise sample sizes. However, calling <code>n1</code> and
+<code>n2</code> the group-wise number of events would be a misnomer, as
+the timings of the interim analyses are based on the overall number of
+events, and the number of events are unlikely to be exactly equal across
+the two groups.</p>
+<p>Let us say we want to plan a two-armed trial trial, where we assume
+an average rate of events of <span class="math inline">\(\psi=0.7\)</span>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>datadist <span class="ot">&lt;-</span> <span class="fu">Survival</span>(<span class="fl">0.7</span>, <span class="at">two_armed =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>The postulated rate of events <span class="math inline">\(\psi\)</span> is saved in the
+<code>DataDistribution</code> object and will be handed down to any
+design optimized with respect to this distribution. It will be used to
+convert the required number of events <span class="math inline">\(d\)</span> to the estimated number of required
+recruits via <span class="math inline">\(\frac{d}{\psi}\)</span>, but it
+has no other uses. All other design parameters are invariant with
+respect to the choice of <span class="math inline">\(\psi\)</span>.</p>
+<p>Effect sizes for time-to-event trials are formulated with respect to
+a hazard ratio. For our example, we assume <span class="math inline">\(\theta=1\)</span> for the null hypothesis, and a
+point alternative hypothesis of <span class="math inline">\(\theta=1.7\)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>H_0 <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>H_1 <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(<span class="fl">1.7</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p>Our desired design should have a maximal type I error <span class="math inline">\(\alpha\leq 0.025\)</span> and a minimum power of
+<span class="math inline">\((1-\beta)\geq 0.8\)</span>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.025</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>min_power <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>toer_con <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist,H_0) <span class="sc">&lt;=</span> alpha</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>pow_con <span class="ot">&lt;-</span> <span class="fu">Power</span>(datadist,H_1) <span class="sc">&gt;=</span> min_power</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>exp_no_events <span class="ot">&lt;-</span> <span class="fu">ExpectedNumberOfEvents</span>(datadist, H_1)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>init <span class="ot">&lt;-</span> <span class="fu">get_initial_design</span>(<span class="fl">1.7</span>, <span class="fl">0.025</span>, <span class="fl">0.2</span>, <span class="at">dist=</span>datadist)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>opt_survival <span class="ot">&lt;-</span> <span class="fu">minimize</span>(exp_no_events, <span class="fu">subject_to</span>(toer_con,pow_con),</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                         <span class="at">initial_design =</span> init, <span class="at">check_constraints=</span><span class="cn">TRUE</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="fu">summary</span>(opt_survival<span class="sc">$</span>design)</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt; For two-armed trials: nevs denotes half of the overall number of required events. nrec denotes the resulting group-wise sample size.</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt; TwoStageDesignSurvival: nevs1= 32 --&gt; nrec1= 46</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt;           futility |                  continue                 | efficacy</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt;       x1:     0.79 |  0.83  0.98  1.24  1.54  1.85  2.10  2.25 |  2.29</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt;   c2(x1):     +Inf | +2.17 +2.02 +1.77 +1.43 +1.00 +0.52 +0.07 |  -Inf</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt;   nevs2(x1):     0 |    45    42    38    32    24    17    12 |     0</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt;   nrec2(x1):     0 |    64    60    54    45    35    25    17 |     0</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div>
+<p>It should be noted that the number of required events <span class="math inline">\(2\cdot\)</span><code>nevs1</code> and <span class="math inline">\(2\cdot\)</span> <code>nevs2(x1)</code> are the
+important information thresholds to be adhered to for testing purposes.
+<code>nrec1</code> and and <code>nrec2(x1)</code> only serve as rough
+estimates for the required number of recruits to achieve the target
+number of events. If additional information about e.g. time-dependence
+of baseline hazards is available, it may be worthwhile to use a more
+sophisticated approach than the <span class="math inline">\(\frac{d}{\psi}\)</span> formula to estimate the
+number of required subjects.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

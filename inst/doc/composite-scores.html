@@ -345,8 +345,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 subclassing, for most applications a simple point-wise arithmetic on
 scores is sufficient. For instance, consider the case of a utility
 maximizing approach to planning where not a hard constraint on power but
-rather a trade-off betweem power and expected sample size is required.
-The simplest utility function would just be a weightes sum of both power
+rather a trade-off between power and expected sample size is required.
+The simplest utility function would just be a weighted sum of both power
 (negative weight since we minimize costs!) and expected sample size.</p>
 <p>Consider the following situation</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>H_0      <span class="ot">&lt;-</span> <span class="fu">PointMassPrior</span>(.<span class="dv">0</span>, <span class="dv">1</span>)</span>
@@ -369,7 +369,7 @@ The simplest utility function would just be a weightes sum of both power
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>)</span>
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">evaluate</span>(objective, design)</span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; [1] 59.34104</span></span></code></pre></div>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; [1] 50.16813</span></span></code></pre></div>
 <p>Note that conditional and unconditional scores cannot be mixed in an
 expression passed to <code>composite</code>. Composite conditional
 score, however, are possible as well.</p>
@@ -378,10 +378,10 @@ score, however, are possible as well.</p>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>cs  <span class="ot">&lt;-</span> <span class="fu">composite</span>({css <span class="sc">-</span> <span class="dv">50</span><span class="sc">*</span>cp})</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">evaluate</span>(cs, design, <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>, <span class="dv">1</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] 200.2961 200.0316 200.0021</span></span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] 200.0014 200.0003 200.0001</span></span></code></pre></div>
 <p>Of course, composite conditional scores can also be integrated</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">evaluate</span>(<span class="fu">expected</span>(cs, datadist, H_1), design)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; [1] 59.34104</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; [1] 50.16813</span></span></code></pre></div>
 <p>and (due to linearity) the result is exactly the same as before.</p>
 <div id="functional-composition" class="section level2">
 <h2>Functional Composition</h2>
@@ -389,7 +389,7 @@ score, however, are possible as well.</p>
 any valid numerical expression:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">composite</span>({<span class="fu">log</span>(css) <span class="sc">-</span> <span class="dv">50</span><span class="sc">*</span><span class="fu">sin</span>(cp)})</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">evaluate</span>(cs, design, <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">5</span>, <span class="dv">1</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [1] -36.39139 -36.53500 -36.55095</span></span></code></pre></div>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt; [1] -36.55135 -36.55192 -36.55205</span></span></code></pre></div>
 <p>Even control flow is supported:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">composite</span>({</span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="dv">0</span></span>

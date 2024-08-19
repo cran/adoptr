@@ -1,3 +1,13 @@
+# adoptr 1.1.0
+
+# adoptr 1.1.0
+
+* include survival endpoints
+* add F-distribution and chi-squared distribution
+* check if constraints are fulfilled
+* update `get_initial_design`
+* vignettes for binomial and time-to-event endpoints
+
 # adoptr 1.0.1
 
 * updated maintainer

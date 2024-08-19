@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2024-06-07" />
+<meta name="date" content="2024-08-13" />
 
 <title>The adoptr Package: Adaptive Optimal Designs for Clinical Trials in R</title>
 
@@ -389,7 +389,7 @@ Charité Berlin and Berlin Insitute of Health<br><a class="author_email" href="m
 <address class="author_afil">
 University of Heidelberg<br><a class="author_email" href="mailto:#"><a href="mailto:meinhard.kieser@imbi.uni-heidelberg.de" class="email">meinhard.kieser@imbi.uni-heidelberg.de</a></a>
 </address>
-<h4 class="date">2024-06-07</h4>
+<h4 class="date">2024-08-13</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Even though adaptive two-stage designs with unblinded interim analyses are becoming increasingly popular in clinical trial designs, there is a lack of statistical software to make their application more straightforward. The package <strong>adoptr</strong> fills this gap for the common case of two-stage one- or two-arm trials with (approximately) normally distributed outcomes. In contrast to previous approaches, <strong>adoptr</strong> optimizes the entire design upfront which allows maximal efficiency. To facilitate experimentation with different objective functions, <strong>adoptr</strong> supports a flexible way of specifying both (composite) objective scores and (conditional) constraints by the user. Special emphasis was put on providing measures to aid practitioners with the validation process of the package.</p>
@@ -1157,8 +1157,8 @@ We, therefore, decided to restrict the internal unit tests to a bare minimum wit
 a clear focus on coverage and technical integrity of the package.
 To demonstrate correctness of our results over a larger set of examples and in
 comparison with existing packages such as <strong>rpact</strong>, we implemented an external
-‘validation report’ (sources: <a href="https://github.com/kkmann/adoptr-validation-report" class="uri">https://github.com/kkmann/adoptr-validation-report</a>,
-current report: <a href="https://kkmann.github.io/adoptr-validation-report/" class="uri">https://kkmann.github.io/adoptr-validation-report/</a>) using the
+‘validation report’ (sources: <a href="https://github.com/optad/adoptr-validation-report" class="uri">https://github.com/optad/adoptr-validation-report</a>,
+current report: <a href="https://optad.github.io/adoptr-validation-report/" class="uri">https://optad.github.io/adoptr-validation-report/</a>) using the
 <strong>bookdown</strong> (<span class="citation">Xie (2019)</span>, <span class="citation">Xie (2016)</span>) package.
 The report itself again uses CI/CD and daily rebuilds to automatically deploy
 the report corresponding to the most current CRAN-hosted version of the package.

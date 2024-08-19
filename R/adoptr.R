@@ -20,7 +20,7 @@
 #' or here <doi:10.18637/jss.v098.i09> .
 #'
 #' A variety of examples is presented in the validation report hosted
-#' \href{https://kkmann.github.io/adoptr-validation-report/}{here}.
+#' \href{https://optad.github.io/adoptr-validation-report/}{here}.
 #'
 #'
 #'
@@ -33,8 +33,9 @@
 #'
 #' @section Data distributions:
 #'
-#' Currently, the only implemented data distribution is \code{\link{Normal}}
-#' (one or two arms).
+#' The implemented data distributions are \code{\link{Normal}}, \code{\link{Binomial}},
+#' \code{\link{Student}}, \code{\link{Survival}}, \code{\link{ChiSquared}} (including
+#' \code{\link{Pearson2xK}} and \code{\link{ZSquared}}) and \code{\link{ANOVA}}.
 #'
 #'
 #'
