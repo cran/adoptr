@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2024-08-13" />
+<meta name="date" content="2024-10-02" />
 
 <title>The adoptr Package: Adaptive Optimal Designs for Clinical Trials in R</title>
 
@@ -254,6 +254,7 @@ width: 90%;
 div.csl-bib-body { }
 div.csl-entry {
 clear: both;
+margin-bottom: 0em;
 }
 .hanging div.csl-entry {
 margin-left:2em;
@@ -389,7 +390,7 @@ Charité Berlin and Berlin Insitute of Health<br><a class="author_email" href="m
 <address class="author_afil">
 University of Heidelberg<br><a class="author_email" href="mailto:#"><a href="mailto:meinhard.kieser@imbi.uni-heidelberg.de" class="email">meinhard.kieser@imbi.uni-heidelberg.de</a></a>
 </address>
-<h4 class="date">2024-08-13</h4>
+<h4 class="date">2024-10-02</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Even though adaptive two-stage designs with unblinded interim analyses are becoming increasingly popular in clinical trial designs, there is a lack of statistical software to make their application more straightforward. The package <strong>adoptr</strong> fills this gap for the common case of two-stage one- or two-arm trials with (approximately) normally distributed outcomes. In contrast to previous approaches, <strong>adoptr</strong> optimizes the entire design upfront which allows maximal efficiency. To facilitate experimentation with different objective functions, <strong>adoptr</strong> supports a flexible way of specifying both (composite) objective scores and (conditional) constraints by the user. Special emphasis was put on providing measures to aid practitioners with the validation process of the package.</p>
@@ -655,7 +656,9 @@ The weights only depend on <span class="math inline">\(k\)</span> and the nodes 
 the integration interval.
 Consequentially, this objective function is smooth in the optimization
 parameters and the resulting optimization problem is of dimension <span class="math inline">\(2k+3\)</span>,
-where the tuning parameters are <span class="math inline">\(\big(n_1, c_1^f, c_1^e, n_2\big(\widetilde{x}_1^{(1)}\big), \dots, n_2\big(\widetilde{x}_1^{(k)}\big), c_2\big(\widetilde{x}_1^{(1)}\big), \dots, c_2\big(\widetilde{x}_1^{(k)}\big)\big)\)</span>.
+where the tuning parameters are <span class="math inline">\(\big(n_1, c_1^f, c_1^e, n_2\big(\widetilde{x}_1^{(1)}\big),
+\dots, n_2\big(\widetilde{x}_1^{(k)}\big), c_2\big(\widetilde{x}_1^{(1)}\big),
+\dots, c_2\big(\widetilde{x}_1^{(k)}\big)\big)\)</span>.
 Standard numerical solvers may then be employed to minimize it.
 Since <strong>adoptr</strong> enables generic objectives (cf. Section <a href="#sec:utility_maximization">6.3</a>),
 it uses the gradient-free optimizer COBYLA <span class="citation">(Powell 1994)</span> internally via
@@ -1209,7 +1212,7 @@ Forschungsgemeinschaft under Grant number KI 708/4-1.</p>
 </div>
 <div id="references" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Bauer2015" class="csl-entry">
 Bauer, P., F. Bretz, V. Dragalin, F. König, and G. Wassmer. 2015. <span>“Twenty-Five Years of Confirmatory Adaptive Designs: Opportunities and Pitfalls.”</span> <em>Statistics in Medicine</em> 35 (3): 325–47. <a href="https://doi.org/10.1002/sim.6472">https://doi.org/10.1002/sim.6472</a>.
 </div>
