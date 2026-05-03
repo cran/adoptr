@@ -1,3 +1,8 @@
+# adoptr 1.1.2
+
+* fix documentation problem according to CRAN checks
+* update maintainer e-mail
+
 # adoptr 1.1.1
 
 * fix issue from new glue update

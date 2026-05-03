@@ -53,7 +53,7 @@ opt_res <- minimize(
 )
 
 ## ----nloptr-output, eval = FALSE----------------------------------------------
-#  opt_res$nloptr_return$iterations
+# opt_res$nloptr_return$iterations
 
 ## ----plot-optimal-design------------------------------------------------------
 plot(

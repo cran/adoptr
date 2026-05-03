@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2024-10-02" />
+<meta name="date" content="2026-05-02" />
 
 <title>The adoptr Package: Adaptive Optimal Designs for Clinical Trials in R</title>
 
@@ -254,7 +254,6 @@ width: 90%;
 div.csl-bib-body { }
 div.csl-entry {
 clear: both;
-margin-bottom: 0em;
 }
 .hanging div.csl-entry {
 margin-left:2em;
@@ -390,7 +389,7 @@ Charité Berlin and Berlin Insitute of Health<br><a class="author_email" href="m
 <address class="author_afil">
 University of Heidelberg<br><a class="author_email" href="mailto:#"><a href="mailto:meinhard.kieser@imbi.uni-heidelberg.de" class="email">meinhard.kieser@imbi.uni-heidelberg.de</a></a>
 </address>
-<h4 class="date">2024-10-02</h4>
+<h4 class="date">2026-05-02</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Even though adaptive two-stage designs with unblinded interim analyses are becoming increasingly popular in clinical trial designs, there is a lack of statistical software to make their application more straightforward. The package <strong>adoptr</strong> fills this gap for the common case of two-stage one- or two-arm trials with (approximately) normally distributed outcomes. In contrast to previous approaches, <strong>adoptr</strong> optimizes the entire design upfront which allows maximal efficiency. To facilitate experimentation with different objective functions, <strong>adoptr</strong> supports a flexible way of specifying both (composite) objective scores and (conditional) constraints by the user. Special emphasis was put on providing measures to aid practitioners with the validation process of the package.</p>
@@ -425,7 +424,7 @@ under .</p>
 <div id="background" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Background</h1>
 <p>Confirmatory clinical trials are conducted in a strictly regulated environment.
-A key quality criterion put forward by the relevant agencies (<span class="citation">US Food and Drug Administration et al. (2019)</span>, <span class="citation">Committee for Medicinal Products for Human Use and others (2007)</span>)
+A key quality criterion put forward by the relevant agencies (<span class="citation"><span class="nocase">US Food and Drug Administration et al.</span> (2019)</span>, <span class="citation">Committee for Medicinal Products for Human Use and others (2007)</span>)
 for a study that is supposed to provide evidence for the regulatory acceptance
 of a new drug or treatment is strict type one error rate control.
 This requirement was often seen as conflicting with the perceived need to make
@@ -662,7 +661,7 @@ where the tuning parameters are <span class="math inline">\(\big(n_1, c_1^f, c_1
 Standard numerical solvers may then be employed to minimize it.
 Since <strong>adoptr</strong> enables generic objectives (cf. Section <a href="#sec:utility_maximization">6.3</a>),
 it uses the gradient-free optimizer COBYLA <span class="citation">(Powell 1994)</span> internally via
-the <strong>R</strong>-package <strong>nloptr</strong> (<span class="citation">Johnson (2018)</span>, <span class="citation">Ypma, Borchers, and Eddelbuettel (2018)</span>).</p>
+the <strong>R</strong>-package <strong>nloptr</strong> (<span class="citation">Johnson (2018)</span>, <span class="citation">Ypma et al. (2018)</span>).</p>
 <p>Most commonly used unconditional performance scores
 <span class="math inline">\(S(\mathcal{D})\)</span> can be seen as expected values over conditional scores
 <span class="math inline">\(S(\mathcal{D}|X_1)\)</span> by
@@ -693,7 +692,7 @@ trials where the rounding error is largest (data not shown).</p>
 <p><span class="citation">Bauer et al. (2015)</span> state that adequate statistical software for adaptive designs
 ‘is increasingly needed to evaluate the adaptations and to find reasonable
 strategies’.</p>
-<p>Commercial software such as JMP <span class="citation">(SAS Institute Inc., n.d.a)</span>
+<p>Commercial software such as JMP <span class="citation">(SAS Institute Inc., n.d.-a)</span>
 or Minitab <span class="citation">(Minitab, Inc. 2020)</span> allow planning
 and analyzing a wide range of experimental setups.
 Amongst others, they provide tools for randomization,
@@ -701,7 +700,7 @@ stratification, block-building, or D-optimal designs.
 These general purpose statistical software packages do not, however, allow
 planning of more specialized multi-stage designs encountered in clinical trials.
 For group-sequential designs, some planning capabilities are available in the
-<strong>SAS</strong> procedure <code>seqdesign</code> <span class="citation">(SAS Institute Inc., n.d.b)</span>,
+<strong>SAS</strong> procedure <code>seqdesign</code> <span class="citation">(SAS Institute Inc., n.d.-b)</span>,
 PASS <span class="citation">(NCSS 2019)</span>, or
 ADDPLAN <span class="citation">(ICON plc 2020)</span>.
 East <span class="citation">(Cytel 2020)</span> also supports design, simulation and
@@ -712,7 +711,7 @@ Furthermore, there are various open-source <strong>R</strong>-packages for the
 analysis of multi-stage designs.
 The package <strong>adaptTest</strong> <span class="citation">(Vandemeulebroecke 2009)</span> implements combination tests for
 adaptive two-stage designs.
-<strong>AGSDest</strong> <span class="citation">(Hack, Brannath, and Brueckner 2019)</span> allows estimation and computation of
+<strong>AGSDest</strong> <span class="citation">(Hack et al. 2019)</span> allows estimation and computation of
 confidence intervals in adaptive group-sequential designs.
 More detailed overviews on software for adaptive clinical trial designs can
 be found in <span class="citation">Bauer et al. (2015)</span>, chapter 6, or in <span class="citation">Tymofyeyev (2014)</span>.
@@ -1123,7 +1122,7 @@ visibility and add an additional layer of testing and quality control.
 New features can be implemented and tested in the (public) development version
 on GitHub before pushing new releases to CRAN.</li>
 <li><em>Unit testing:</em> <strong>adoptr</strong> implements an extensive test suite using the
-package <strong>testthat</strong> (<span class="citation">H. Wickham, R Studio, and R Core Team (2018)</span>, <span class="citation">H. Wickham (2011)</span>) which allows spotting
+package <strong>testthat</strong> (<span class="citation">Wickham et al. (2018)</span>, <span class="citation">Wickham (2011)</span>) which allows spotting
 new errors early during development and localizing them quickly.
 Together with continuous integration (cf. below), this helps to improve quality
 and speeds up the development process.</li>
@@ -1142,14 +1141,14 @@ online service in conjunction with the <strong>covr</strong> package <span class
 It provides statistics on the proportion of lines visited at least
 once during testing (currently 100%) and enables easy online publication of the results.</li>
 <li><em>Online documentation:</em>
-Beyond the standard documentation generated using <strong>roxygen2</strong> <span class="citation">(Hadley Wickham et al. 2019)</span>,
-we also make use of the <strong>pkgdown</strong> <span class="citation">(H. Wickham and Hesselberth 2019)</span> package and the free GitHub pages
+Beyond the standard documentation generated using <strong>roxygen2</strong> <span class="citation">(Wickham et al. 2019)</span>,
+we also make use of the <strong>pkgdown</strong> <span class="citation">(Wickham and Hesselberth 2019)</span> package and the free GitHub pages
 service to publish a static <strong>html</strong> version of the documentation online at
 <a href="https://optad.github.io/adoptr/" class="uri">https://optad.github.io/adoptr/</a>.
 This includes both the function reference and the vignettes in a consistent and
 easily accessible format.
 The online documentation experience is further improved by the integration of
-a full-text docsearch engine (<a href="https://www.algolia.com/ref/docsearch" class="uri">https://www.algolia.com/ref/docsearch</a>).</li>
+a full-text docsearch engine (<a href="https://www.algolia.com/developers" class="uri">https://www.algolia.com/developers</a>).</li>
 <li><em>Extended validation report:</em> There are limits to what can be done in the
 standard unit testing framework within a package itself
 (cf. <a href="https://cran.r-project.org/web/packages/policies.html" class="uri">https://cran.r-project.org/web/packages/policies.html</a>).
@@ -1212,7 +1211,7 @@ Forschungsgemeinschaft under Grant number KI 708/4-1.</p>
 </div>
 <div id="references" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Bauer2015" class="csl-entry">
 Bauer, P., F. Bretz, V. Dragalin, F. König, and G. Wassmer. 2015. <span>“Twenty-Five Years of Confirmatory Adaptive Designs: Opportunities and Pitfalls.”</span> <em>Statistics in Medicine</em> 35 (3): 325–47. <a href="https://doi.org/10.1002/sim.6472">https://doi.org/10.1002/sim.6472</a>.
 </div>
@@ -1232,7 +1231,7 @@ Committee for Medicinal Products for Human Use and others. 2007. <span>“Reflec
 CRAN. 2020. <em>Comprehensive r Archive Network</em>. <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>.
 </div>
 <div id="ref-east2020" class="csl-entry">
-Cytel. 2020. <em>East<sup></sup> 6</em>. <a href="https://www.cytel.com/software/east/">https://www.cytel.com/software/east/</a>.
+Cytel. 2020. <em>East<sup>®</sup> 6</em>. <a href="https://www.cytel.com/software/east/">https://www.cytel.com/software/east/</a>.
 </div>
 <div id="ref-Englert2013" class="csl-entry">
 Englert, S., and M. Kieser. 2013. <span>“Optimal Adaptive Two-Stage Designs for Phase II Cancer Clinical Trials.”</span> <em>Biometrical Journal</em> 55: 955–68. <a href="https://doi.org/10.1002/bimj.201200220">https://doi.org/10.1002/bimj.201200220</a>.
@@ -1253,10 +1252,10 @@ Hedges, L., and I. Olkin. 1985. <em>Statistical Methods in Meta-Analysis</em>. A
 Hester, Jim. 2019. <em>Covr: Test Coverage for Packages</em>. <a href="https://CRAN.R-project.org/package=covr">https://CRAN.R-project.org/package=covr</a>.
 </div>
 <div id="ref-addplan2020" class="csl-entry">
-ICON plc. 2020. <em>ADDPLAN<sup></sup></em>.
+ICON plc. 2020. <em>ADDPLAN<sup>®</sup></em>.
 </div>
 <div id="ref-JT2015" class="csl-entry">
-Jennison, C., and B. W. Turnbull. 2015. <span>“Adaptive Sample Size Modification in Clinical Trials: Start Small Then Ask for More?”</span> <em>Statistics in Medicine</em> 34 (29): 3793–3810. <a href="https://doi.org/10.1002/sim.6575">https://doi.org/10.1002/sim.6575</a>.
+Jennison, C., and B. W. Turnbull. 2015. <span>“Adaptive Sample Size Modification in Clinical Trials: Start Small Then Ask for More?”</span> <em>Statistics in Medicine</em> 34 (29): 3793–810. <a href="https://doi.org/10.1002/sim.6575">https://doi.org/10.1002/sim.6575</a>.
 </div>
 <div id="ref-nlopt" class="csl-entry">
 Johnson, S. G. 2018. <em>The NLopt Nonlinear-Optimization Package</em>. <a href="https://nlopt.readthedocs.io/en/latest/">https://nlopt.readthedocs.io/en/latest/</a>.
@@ -1265,7 +1264,7 @@ Johnson, S. G. 2018. <em>The NLopt Nonlinear-Optimization Package</em>. <a href=
 Kunzmann, K., and M. Kieser. 2016. <span>“Optimal Adaptive Two-Stage Designs for Single-Arm Trial with Binary Endpoint.”</span> <em>arXiv</em>, 1605.00249.
 </div>
 <div id="ref-Kunzmann2019" class="csl-entry">
-———. 2020. <span>“Optimal Adaptive Single-Arm Phase II Trials Under Quantified Uncertainty.”</span> <em>Journal of Biopharmaceutical Statistics</em> 30 (1): 89–103. <a href="https://doi.org/10.1080/10543406.2019.1609016">https://doi.org/10.1080/10543406.2019.1609016</a>.
+Kunzmann, K., and M. Kieser. 2020. <span>“Optimal Adaptive Single-Arm Phase II Trials Under Quantified Uncertainty.”</span> <em>Journal of Biopharmaceutical Statistics</em> 30 (1): 89–103. <a href="https://doi.org/10.1080/10543406.2019.1609016">https://doi.org/10.1080/10543406.2019.1609016</a>.
 </div>
 <div id="ref-new-scores" class="csl-entry">
 Kunzmann, K., and M. Pilz. 2020. <em>Defining New Scores</em>. <a href="https://rdrr.io/cran/adoptr/f/vignettes/defining-new-scores.Rmd">https://rdrr.io/cran/adoptr/f/vignettes/defining-new-scores.Rmd</a>.
@@ -1280,10 +1279,10 @@ Lubin, M., and I. Dunning. 2015. <span>“Computing in Operations Research Using
 Mehta, C. R., and S. J. Pocock. 2011. <span>“Adaptive Increase in Sample Size When Interim Results Are Promising: A Practical Guide with Examples.”</span> <em>Statistics in Medicine</em> 30 (28): 3267–84. <a href="https://doi.org/10.1002/sim.4102">https://doi.org/10.1002/sim.4102</a>.
 </div>
 <div id="ref-minitab2020" class="csl-entry">
-Minitab, Inc. 2020. <em>Minitab 19 Statistical Software <sup></sup></em>. <a href="https://www.minitab.com">https://www.minitab.com</a>.
+Minitab, Inc. 2020. <em>Minitab 19 Statistical Software <sup>®</sup></em>. <a href="https://www.minitab.com">https://www.minitab.com</a>.
 </div>
 <div id="ref-pass2019" class="csl-entry">
-NCSS. 2019. <em>PASS Sample Size 2019 <sup></sup></em>. <a href="https://www.ncss.com/software/pass/">https://www.ncss.com/software/pass/</a>.
+NCSS. 2019. <em>PASS Sample Size 2019 <sup>®</sup></em>. <a href="https://www.ncss.com/software/pass/">https://www.ncss.com/software/pass/</a>.
 </div>
 <div id="ref-OBF" class="csl-entry">
 O’Brien, P. C., and T. R. Fleming. 1979. <span>“A Multiple Testing Procedure for Clinical Trials.”</span> <em>Biometrics</em> 35 (3): 549–56.
@@ -1295,25 +1294,25 @@ Pilz, M., K. Kunzmann, C. Herrmann, G. Rauch, and M. Kieser. 2019. <span>“A Va
 Pocock, S. J. 1977. <span>“Group Sequential Methods in the Design and Analysis of Clinical Trials.”</span> <em>Biometrika</em> 64 (2): 191–99. <a href="https://doi.org/10.1093/biomet/64.2.191">https://doi.org/10.1093/biomet/64.2.191</a>.
 </div>
 <div id="ref-COBYLA" class="csl-entry">
-Powell, M. J. D. 1994. <span>“A Direct Search Optimization Method That Models the Objective and Constraint Functions by Linear Interpolation.”</span> In <em>Advances in Optimization and Numerical Analysis</em>, 51–67. Dordrecht: Springer-Verlag Netherlands. <a href="https://doi.org/10.1007/978-94-015-8330-5_4">https://doi.org/10.1007/978-94-015-8330-5_4</a>.
+Powell, M. J. D. 1994. <span>“A Direct Search Optimization Method That Models the Objective and Constraint Functions by Linear Interpolation.”</span> In <em>Advances in Optimization and Numerical Analysis</em>. Springer-Verlag Netherlands. <a href="https://doi.org/10.1007/978-94-015-8330-5_4">https://doi.org/10.1007/978-94-015-8330-5_4</a>.
 </div>
 <div id="ref-R" class="csl-entry">
-R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: The R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. The R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-jmp2020" class="csl-entry">
-SAS Institute Inc., NC, Cary. n.d.a. <em>JMP Clinical <sup></sup></em>.
+SAS Institute Inc., NC, Cary. n.d.-a. <em>JMP Clinical <sup>®</sup></em>.
 </div>
 <div id="ref-sas2020" class="csl-entry">
-———. n.d.b. <em>SAS<sup></sup></em>.
+SAS Institute Inc., NC, Cary. n.d.-b. <em>SAS<sup>®</sup></em>.
 </div>
 <div id="ref-r-fda" class="csl-entry">
-The R Foundation for Statistical Computing. 2013. <span>“R: Regulatory Compliance and Validation Issues - a Guidance Document for the Use of r in Regulated Clinical Trial Environments.”</span> <a href="https://www.r-project.org/doc/R-FDA.pdf">https://www.r-project.org/doc/R-FDA.pdf</a>.
+The R Foundation for Statistical Computing. 2013. <em>R: Regulatory Compliance and Validation Issues - a Guidance Document for the Use of r in Regulated Clinical Trial Environments</em>. <a href="https://www.r-project.org/doc/R-FDA.pdf">https://www.r-project.org/doc/R-FDA.pdf</a>.
 </div>
 <div id="ref-Tymofyeyev2014" class="csl-entry">
-Tymofyeyev, Y. 2014. <span>“A Review of Available Software and Capabilities for Adaptive Designs.”</span> In <em>Practical Considerations for Adaptive Trial Design and Implementation</em>, 139–55. Springer-Verlag New York. <a href="https://doi.org/10.1007/978-1-4939-1100-4_8">https://doi.org/10.1007/978-1-4939-1100-4_8</a>.
+Tymofyeyev, Y. 2014. <span>“A Review of Available Software and Capabilities for Adaptive Designs.”</span> In <em>Practical Considerations for Adaptive Trial Design and Implementation</em>. Springer-Verlag New York. <a href="https://doi.org/10.1007/978-1-4939-1100-4_8">https://doi.org/10.1007/978-1-4939-1100-4_8</a>.
 </div>
 <div id="ref-FDA" class="csl-entry">
-US Food and Drug Administration et al. 2019. <em>Adaptive Designs for Clinical Trials of Drugs and Biologics - Guidance for Industry</em>. <a href="https://www.fda.gov/media/78495/download">https://www.fda.gov/media/78495/download</a>.
+<span class="nocase">US Food and Drug Administration et al.</span> 2019. <em>Adaptive Designs for Clinical Trials of Drugs and Biologics - Guidance for Industry</em>. <a href="https://www.fda.gov/media/78495/download">https://www.fda.gov/media/78495/download</a>.
 </div>
 <div id="ref-crf11" class="csl-entry">
 US Food and Drug Administration and others. 2003. <span>“Guidance for Industry Part 11, Electronic Records; Electronic Signatures — Scope and Application.”</span> <em>US Food Drug Admin, Rockville</em>. <a href="https://www.fda.gov/media/75414/download">https://www.fda.gov/media/75414/download</a>.
@@ -1346,10 +1345,10 @@ Wickham, H., and J. Hesselberth. 2019. <em>Pkgdown: Make Static HTML Documentati
 Wickham, H., R Studio, and R Core Team. 2018. <em>Testthat: Unit Testing for r</em>. <a href="https://CRAN.R-project.org/package=testthat">https://CRAN.R-project.org/package=testthat</a>.
 </div>
 <div id="ref-bookdown_pub" class="csl-entry">
-Xie, Y. 2016. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9781315204963">https://doi.org/10.1201/9781315204963</a>.
+Xie, Y. 2016. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9781315204963">https://doi.org/10.1201/9781315204963</a>.
 </div>
 <div id="ref-bookdown" class="csl-entry">
-———. 2019. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+Xie, Y. 2019. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
 </div>
 <div id="ref-nloptr" class="csl-entry">
 Ypma, J., H. W. Borchers, and D. Eddelbuettel. 2018. <em>Nloptr: R Interface to NLopt</em>. <a href="https://CRAN.R-project.org/package=nloptr">https://CRAN.R-project.org/package=nloptr</a>.
